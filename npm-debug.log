@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'link',
+1 verbose cli   'express' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose node_modules\express unbuild
+6 verbose link symlinking C:\Users\pery\AppData\Roaming\npm\node_modules\express to A:\CODE\AWS\node_modules\express
+7 error Error: EPERM, symlink 'C:\Users\pery\AppData\Roaming\npm\node_modules\express'
+7 error  { [Error: EPERM, symlink 'C:\Users\pery\AppData\Roaming\npm\node_modules\express']
+7 error   errno: 50,
+7 error   code: 'EPERM',
+7 error   path: 'C:\\Users\\pery\\AppData\\Roaming\\npm\\node_modules\\express' }
+8 error Please try running this command again as root/Administrator.
+9 error System Windows_NT 6.2.9200
+10 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "link" "express"
+11 error cwd A:\CODE\AWS
+12 error node -v v0.10.36
+13 error npm -v 1.4.28
+14 error path C:\Users\pery\AppData\Roaming\npm\node_modules\express
+15 error code EPERM
+16 error errno 50
+17 error stack Error: EPERM, symlink 'C:\Users\pery\AppData\Roaming\npm\node_modules\express'
+18 verbose exit [ 50, true ]

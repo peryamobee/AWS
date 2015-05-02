@@ -1,0 +1,29 @@
+{
+  "name": "myAWS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongo.js",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "express": "^4.12.3",
+    "mongodb": "^2.0.28"
+  },
+
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perymimon/AWS.git"
+  },
+  "keywords": [
+    "AWS"
+  ],
+  "author": "pery mimon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/perymimon/AWS/issues"
+  },
+  "homepage": "https://github.com/perymimon/AWS"
+}

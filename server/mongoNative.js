@@ -12,6 +12,7 @@ var Logs = null;
 MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     if(err){
         console.log(err);
+       return ;
     }
     console.log("we are connected");
     Logs = db.collection('logs',function (err, article) {
@@ -20,16 +21,17 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     });
 
 
+
 });
 //express config init
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
-app.use(express.static(__dirname + '/../public')); // for parsing application/json
+app.use(express.static(__dirname + '/../client')); // for parsing application/json
 app.use(bodyParser.json()); // for parsing application/json
 // Routes
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/../public/index.html')
+    res.sendFile(__dirname + '/../client/index.html')
 });
 
 //rest

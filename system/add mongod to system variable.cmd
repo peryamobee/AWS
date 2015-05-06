@@ -1,0 +1,1 @@
+setx -m path = %path% +

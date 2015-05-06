@@ -6,40 +6,22 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="src/logs.srv.js"></script>
-    <script type="text/javascript">
-       var  ngApp =  angular.module('myApp', ['logs'])
-               .controller('myController',myController);
-        function myController($scope,Logs){
-
-            $scope.send = function (logText) {
-                Logs.send(logText)
-                        .then(function () {
-                            $scope.status = 'sucess'+ ++inc;
-                        });
-            };
-            var inc = 0;
-            Logs.getLogs().then(function (data) {
-                $scope.logRecords = data;
-            })
-
-
-        }
-    </script>
+    <script src="index.js" ></script>
 </head>
 <body  ng-app="myApp">
 <div ng-controller="myController">
-    hello fat world
+    <div class="day-title">10/02</div>
     <br/>
-    <sidebar>
-        <div ng-repeat="log in logRecords" >
-            <span ng-bind="log.create"></span>
-            :
-            <span ng-bind="log.log"></span>
-        </div>
-    </sidebar>
+    <div class="record" ng-repeat="logRecord in logRecords" >
+        <span class="time-stamp" ng-bind="logRecord.create"></span>
+        :
+        <span class="text-log" ng-bind="logRecord.log"></span>
+    </div>
+
     <form ng-action="send()">
-        <input type="text" ng-model="model.log"/>
-        <button ng-click="send(model.log)">send</button>
+        <span class="time-stamp" ng-bind="currentTime"></span>
+        :
+        <input class="log-input" autofocus="autofocus" type="text" ng-model="model.log"/>
     </form>
     <span ng-bind="status"></span>
 

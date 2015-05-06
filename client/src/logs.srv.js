@@ -20,7 +20,7 @@ angular.module('logs',[])
             return $http.get('/log').then(function (res) {
                 var data = res.data;
                 data.forEach(function (log) {
-                    log.create = moment(log.create).format('DD-MM HH:MM');
+                    log.create = moment(log.create).format('HH:MM');
                 });
                 return data;
 

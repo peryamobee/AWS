@@ -10,12 +10,20 @@
 </head>
 <body  ng-app="Main">
 <div ng-controller="mainController">
-    <div class="day-title" >08/10</div>
-    <div class="log-record"    ng-repeat="log in recorsd" >
-        <span class="log-create" ng-bind="log.create"></span>
-        :
-        <span class="log-text" ng-bind="log.log"></span>
+
+    <div ng-repeat="day in daysOfLogs">
+        <div  class="day-title" >
+            {{day._id.day}}/{{day._id.month}}
+        </div>
+        <div class="log-record" ng-repeat="log in day.records" >
+            <span class="log-create" ng-bind="log.create"></span>
+            :
+            <span class="log-text" ng-bind="log.log"></span>
+        </div>
     </div>
+
+
+
     <div class="log-record"  >
         <input type="text" ng-model="model.log"/>
     </div>

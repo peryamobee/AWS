@@ -5,7 +5,7 @@ angular.module('Main',['Logs'])
     .controller('mainController',function($scope,Log){
             var inc = 0;
             Log.getLogs().then(function (logs) {
-                $scope.recorsd = logs;
+                $scope.daysOfLogs = logs;
             });
 
             $scope.send = function(){

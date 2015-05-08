@@ -17,7 +17,14 @@ angular.module('Logs',[])
 
         function getLogs(){
             return $http.get('/log').then(function (res) {
-              return res.data;
+              res.data.forEach(function (day) {
+                  day.records.forEach(function (record) {
+                      record.create = moment(record.create).format('HH:MM');
+                  })
+              });
+            return res.data;
+
+
             })
         }
     });

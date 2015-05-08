@@ -5,51 +5,21 @@
     <title>My First AWS App</title>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/moment/moment.js"></script>
-    <script type="text/javascript">
-       var  ngApp =  angular.module('myApp', [])
-               .controller('myController',myController);
-        function myController($scope,$http){
-
-            $scope.send = send;
-            var inc = 0;
-            getLogs();
-            function send(){
-                $http.post('/log',{
-                    log:$scope.model.log
-                }).then(function (res) {
-                    $scope.status = 'sucess'+ ++inc;
-                    getLogs();
-                })
-            }
-
-            function getLogs(){
-                $http.get('/log').then(function (res) {
-                    $scope.logs = res.data;
-                    $scope.logs.map(function (log) {
-                        log.create = moment(log.create).format('DD-MM HH:MM');
-                    })
-
-                })
-            }
-
-        }
-    </script>
+    <script src="src/Logs.srv.js"></script>
+    <script src="index.js"></script>
 </head>
-<body  ng-app="myApp">
-<div ng-controller="myController">
-    hello fat world
-    <br/>
-    <sidebar>
-        <div ng-repeat="log in logs" >
-            <span ng-bind="log.create"></span>
-            :
-            <span ng-bind="log.log"></span>
-        </div>
-    </sidebar>
-    <form ng-action="send()">
+<body  ng-app="Main">
+<div ng-controller="mainController">
+    <div class="day-title" >08/10</div>
+    <div class="log-record"    ng-repeat="log in recorsd" >
+        <span class="log-create" ng-bind="log.create"></span>
+        :
+        <span class="log-text" ng-bind="log.log"></span>
+    </div>
+    <div class="log-record"  >
         <input type="text" ng-model="model.log"/>
-        <button ng-click="send()">send</button>
-    </form>
+    </div>
+
     <span ng-bind="status"></span>
 
     <br/>

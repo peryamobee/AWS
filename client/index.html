@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>My Log AWS App</title>
     <!-- inject:css -->
+    <link rel="stylesheet" href="build/index.css">
     <!-- endinject -->
 </head>
 <body  ng-app="Main">
@@ -20,8 +21,6 @@
         </div>
     </div>
 
-
-
     <div class="log-record"  >
         <input type="text" ng-model="model.log"/>
     </div>
@@ -32,6 +31,12 @@
 
 </div>
 <!-- inject:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/ui-route/release/angular-ui-router.js"></script>
+<script src="src/Logs.srv.js"></script>
+<script src="src/index.js"></script>
+<script src="src/new.srv.js"></script>
 <!-- endinject -->
 </body>
 </html>

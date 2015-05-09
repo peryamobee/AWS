@@ -16,6 +16,7 @@ var minifyCSS = require('gulp-minify-css');
 var size = require('gulp-size');
 var watch = require('gulp-watch');
 var batch = require('gulp-batch');
+var plumber = require('gulp-plumber');
 
 var javascript = ['./client/src/**/*.js','./client/index.js'];
 var stylesheet = ['client/build/*.css'];
@@ -27,11 +28,13 @@ gulp.task('default',['sass','index','watch'], function() {
 
 gulp.task('sass', function () {
     gulp.src('./client/style/*.scss')
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError ))
         .pipe(sourcemaps.write('./maps'))
         .pipe(size())
-        .pipe(gulp.dest('client/build/1'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('client/build/'))
 });
 
 gulp.task('index', function () {
@@ -53,16 +56,6 @@ gulp.task('index', function () {
 /**
  * develop WATCH
  * */
-//gulp.task('watch2', function () {
-//    watch(['client/bower.json'],{name:'building index',readDelay:300}, batch(function (events, done) {
-//        events.on('end', function () {
-//            gulp.start('index');
-//            done();
-//        });
-//
-//    }))
-//});
-
 gulp.task('watch', function () {
     gulp.watch(['client/bower.json'],{debounceDelay:300}, function (event) {
         notify(event);

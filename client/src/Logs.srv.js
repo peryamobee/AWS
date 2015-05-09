@@ -11,18 +11,18 @@ angular.module('Logs',[])
             return $http.post('/log',{
                 log:logText
             }).then(function (res) {
-               return res.data
+                return res.data
             })
         }
 
         function getLogs(){
             return $http.get('/log').then(function (res) {
-              res.data.forEach(function (day) {
-                  day.records.forEach(function (record) {
-                      record.create = moment(record.create).format('HH:MM');
-                  })
-              });
-            return res.data;
+                res.data.forEach(function (day) {
+                    day.records.forEach(function (record) {
+                        record.create = moment(record.create).format('HH:MM');
+                    })
+                });
+                return res.data;
 
 
             })

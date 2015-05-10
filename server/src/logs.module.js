@@ -14,9 +14,7 @@ module.exports = function init (db, app ){
 
     //routes
     app.get('/log', function(req, res ){
-        var lastDaysAmount = req.param.fromDay;
-        var toDay = req.param.toDay;
-        getLogs(lastDaysAmount,function(recoreds){
+        getLogs(req.param.lastsDays,function(recoreds){
             res.send(recoreds)
         })
     });

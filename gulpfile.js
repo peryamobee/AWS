@@ -17,14 +17,11 @@ var size = require('gulp-size');
 var watch = require('gulp-watch');
 var batch = require('gulp-batch');
 var plumber = require('gulp-plumber');
+var angularFilesort = require('gulp-angular-filesort');
+var shell = require('gulp-shell');
 
 var javascript = ['./client/src/**/*.js','./client/index.js'];
 var stylesheet = ['client/build/*.css'];
-
-
-gulp.task('default',['sass','index','watch'], function() {
-    // place code for your default task here
-});
 
 gulp.task('sass', function () {
     gulp.src('./client/style/*.scss')
@@ -47,12 +44,14 @@ gulp.task('index', function () {
     });
     var paths = [].concat(bowerFiles,javascript,stylesheet);
     var sources = gulp.src(paths, {read: true},{cwd:'client'})
-                 .pipe(size());
+          .pipe(angularFilesort())
+          .pipe(size({showFiles:true}));
 
     gulp.src('./client/index.html')
         .pipe(inject(sources,{relative: true}))
         .pipe(gulp.dest('client/'));
 });
+
 /**
  * develop WATCH
  * */
@@ -81,6 +80,10 @@ gulp.task('watch', function () {
 
 });
 
+gulp.task('run',shell.task([
+    //'mongod  --dbpath /data/db --logpath log/mongodb.log',
+    'node server/server.js'
+]));
 
 gulp.task('production', function () {
 
@@ -99,3 +102,5 @@ gulp.task('production', function () {
         .pipe(size({title:'stylesheet'}))
         .pipe(gulp.dest('client/build/'));
 });
+
+gulp.task('default',['sass','index','watch']);

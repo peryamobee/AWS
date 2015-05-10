@@ -42,9 +42,13 @@ gulp.task('index', function () {
                 bowerJson: 'client/bower.json'
             }
     });
-    var paths = [].concat(bowerFiles,javascript,stylesheet);
-    var sources = gulp.src(paths, {read: true},{cwd:'client'})
-          .pipe(angularFilesort())
+    var bwrSrc = gulp.src(bowerFiles,{read:true});
+
+    var jsSrc =  gulp.src(javascript,{read:true})
+                .pipe(angularFilesort());
+    var cssSrc = gulp.src(stylesheet, {read: true},{cwd:'client'})
+
+    var sources = series(bwrSrc,jsSrc,cssSrc)
           .pipe(size({showFiles:true}));
 
     gulp.src('./client/index.html')

@@ -23,6 +23,7 @@
 
     <div class="log-record"  >
         <input type="text" ng-model="model.log"/>
+        <button ng-click="send(model.log)">send</button>
     </div>
 
     <span ng-bind="status"></span>
@@ -31,10 +32,10 @@
 
 </div>
 <!-- inject:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/moment/moment.js"></script>
 <script src="src/index.js"></script>
 <script src="src/Logs.srv.js"></script>
-<script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/angular/angular.js"></script>
 <!-- endinject -->
 </body>
 </html>

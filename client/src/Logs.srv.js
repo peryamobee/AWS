@@ -15,8 +15,12 @@ angular.module('Logs',[])
             })
         }
 
-        function getLogs(){
-            return $http.get('/log').then(function (res) {
+        function getLogs(lastDays){
+            return $http.get('/log',{
+                params:{
+                    lastDays:lastDays
+                }
+            }).then(function (res) {
                 res.data.forEach(function (day) {
                     day.records.forEach(function (record) {
                         record.create = moment(record.create).format('HH:MM');

@@ -15,6 +15,12 @@ var express = require('express');
 var app = express();
 app.use(express.static(__dirname + '/../client/')); // for parsing application/json
 app.use(bodyParser.json()); // for parsing application/json
+
+// Routes
+app.get('/', function(req, res) {
+    res.sendFile( __dirname + '/../client/build/index.html')
+});
+
 MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     if(err){
         console.log(err);
@@ -31,10 +37,6 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     require('./src/Logs.module.js')(db ,app);
 });
 
-// Routes
-app.get('/', function(req, res) {
-    res.sendFile( __dirname + '/../client/build/index.html')
-});
 
 
 

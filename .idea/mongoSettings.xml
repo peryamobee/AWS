@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="connectOnIdeStartup" value="true" />
+          <option name="label" value="mongo local" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="shellArgumentsLine" value="--dbpath ./data/db" />
+          <option name="userDatabaseAsMySingleDatabase" value="true" />
+        </ServerConfiguration>
+      </list>
+    </option>
+    <option name="shellPath" value="C:\Program Files\MongoDB 2.6 Standard\bin\mongod.exe" />
+  </component>
+</project>

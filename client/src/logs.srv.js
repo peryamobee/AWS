@@ -1,30 +1,34 @@
 /**
- * Created by pery on 06/05/2015.
+ * Created by pery on 08/05/2015.
  */
-angular.module('logs',[])
-    .service('Logs', function ($http) {
+angular.module('Logs',[])
+    .service('Log', function ($http) {
 
-        /*API*/
-        this.send = send;
         this.getLogs = getLogs;
+        this.add = getLogs;
 
-//--------- implements ---------------
-
-        function send(logText){
+        function addLog(logText){
             return $http.post('/log',{
                 log:logText
+            }).then(function (res) {
+                return res.data
             })
         }
 
-        function getLogs(){
-            return $http.get('/log').then(function (res) {
-                var data = res.data;
-                data.forEach(function (log) {
-                    log.create = moment(log.create).format('HH:MM');
+        function getLogs(lastDays){
+            return $http.get('/log',{
+                params:{
+                    lastDays:lastDays
+                }
+            }).then(function (res) {
+                res.data.forEach(function (day) {
+                    day.records.forEach(function (record) {
+                        record.create = moment(record.create).format('HH:MM');
+                    })
                 });
-                return data;
+                return res.data;
+
 
             })
         }
-
     });

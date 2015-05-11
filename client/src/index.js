@@ -5,7 +5,7 @@ angular.module('Main',['Logs'])
     .controller('mainController',function($scope,Log){
             var inc = 0;
             Log.getLogs(10).then(function (logs) {
-                $scope.daysOfLogs = logs;
+                $scope.days = logs;
             });
 
             $scope.send = function(){

@@ -4,5 +4,7 @@
 *.css.map
 
 bower_components
-build
 
+build
+data/db/*
+data/log/*

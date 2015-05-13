@@ -4,46 +4,56 @@
 var logCollection = null;
 var route = null;
 var moment = require('moment');
-module.exports = function init (db, app ){
+
+module.exports = function init ( db ){
+
     logCollection = db.collection('logs',function(err){
         if(err) throw err;
         console.log("logs collection arrive");
     });
 
-    route = app;
+    this.saveLog = function saveLog(req, res){
+        var logObject = req.body;
+        logObject.create =  new Date();
+        logCollection.save(logObject,{w:1}, function (err, record) {
+            res.send(record.ops[0]);
+        });
+    };
 
-    //routes
-    app.get('/log', function(req, res ){
-        getLogs(req.param.lastsDays,function(recoreds){
-            res.send(recoreds)
-        })
-    });
-    app.post('/log', function (req, res) {
-        createLog(req.body);
-        res.send('log inserted');
-    });
+    this.getLogs = function getLogs(req, res) {
+        var fromDay = moment()
+                .subtract(req.query.lastDays||1,'day')
+                .startOf('day').toDate();
 
-
-
-    function createLog(text){
-        var log = {text:text,log:text, create: new Date()};
-        logCollection.insert(log);
-    }
-
-    function getLogs(lastDaysAmount, callback) {
-        //callback(items)
-        var fromDay = moment().subtract(lastDaysAmount||1,'day').startOf('day').toDate();
-
-        logCollection.aggregate([{
-            $match:{create:{$gt: fromDay }}
+        logCollection.aggregate([
+           {
+            $match:{
+                create:{
+                    $gt: fromDay
+                }
+            }
         },{
             $group:{
-                _id: {month:{$month:'$create'},day: { $dayOfMonth: "$create" }, year: { $year: "$create" }},
-                records:{$push:"$$ROOT"}
+                _id: {
+                    month:{$month:'$create'},
+                    day: { $dayOfMonth: "$create" },
+                    year: { $year: "$create" },
+                    date:{ $dateToString: { format: "%Y-%m-%d", date: "$create" }}
+                },
+                records:{
+                    $push:"$$ROOT"
+                },
+
+            }
+        },{
+            $sort:{
+                '_id.month':1,
+                '_id.day':1,
+                '_id.year':1
             }
         }], function (err, result) {
             if(err){throw err;}
-            callback(result);
+            res.send(result);
         })
     }
 

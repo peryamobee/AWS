@@ -26,6 +26,12 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
         console.log(err);
         return;
     }
+    var logCollectionService = new (require('./src/Logs.module.js'))(db ,app);
+    /*route*/
+    app.get('/log', logCollectionService.getLogs);
+    app.post('/log', logCollectionService.saveLog);
+
+
     var server = app.listen(8080, function () {
         var host = server.address().address;
         var port = server.address().port;
@@ -34,7 +40,7 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     });
 
     console.log("we are connected");
-    require('./src/Logs.module.js')(db ,app);
+
 });
 
 

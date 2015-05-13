@@ -1,1 +1,1 @@
-mongod  --dbpath ./data/db --logpath ./data/log/mongodb.log
+mongod  --dbpath data/db --logpath data/log/mongodb.log

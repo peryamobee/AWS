@@ -3,14 +3,22 @@
  */
 angular.module('Main',['Logs'])
     .controller('mainController',function($scope,Log){
-            var inc = 0;
-            Log.getLogs(10).then(function (logs) {
+            var daysBack = 30;
+            Log.getLogs(daysBack).then(function (logs) {
                 $scope.days = logs;
             });
 
-            $scope.send = function(){
-                Log.add($scope.model.log);
-                Log.getLogs();
-            }
+            $scope.addLog = function(){
+                Log.addLog($scope.model.log).then(function () {
+                    Log.getLogs(daysBack).then(function (logs) {
+                        $scope.days = logs;
+                    });
+                });
+            };
+        setInterval(function () {
+            $scope.timeNow = moment().format('HH:MM');
+
+        },1000);
+        $scope.moment = moment;
 
     });

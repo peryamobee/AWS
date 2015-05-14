@@ -2,39 +2,28 @@
  * Created by pery on 09/05/2015.
  */
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var ngAnnotate = require('gulp-ng-annotate');
-var uglify = require('gulp-uglify');
-var inject = require('gulp-inject');
-var mainBowerFiles = require('main-bower-files');
-var series = require('stream-series');
-var concat = require('gulp-concat');
-var stripDebug = require('gulp-strip-debug');
-var autoprefix = require('gulp-autoprefixer');
-var minifyCSS = require('gulp-minify-css');
-var size = require('gulp-size');
-var watch = require('gulp-watch');
-var batch = require('gulp-batch');
-var plumber = require('gulp-plumber');
-var angularFilesort = require('gulp-angular-filesort');
-var shell = require('gulp-shell');
+var plugins = require('gulp-load-plugins')({
+    rename: {
+    }
+});
 
 var javascript = ['./client/src/**/*.js','./client/index.js'];
 var stylesheet = ['client/build/*.css'];
 
 gulp.task('sass', function () {
     gulp.src('./client/style/*.scss')
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError ))
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(size())
-        .pipe(plumber.stop())
+        .pipe(plugins.plumber())
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sass().on('error', plugins.sass.logError ))
+        .pipe(plugins.sourcemaps.write('./maps'))
+        .pipe(plugins.size())
+        .pipe(plugins.plumber.stop())
         .pipe(gulp.dest('client/build/'))
 });
 
 gulp.task('index', function () {
+    var mainBowerFiles = require('main-bower-files');
+    var series = require('stream-series');
     var bowerFiles = mainBowerFiles({
             paths: {
                 bowerDirectory: 'client/bower_components',
@@ -45,14 +34,14 @@ gulp.task('index', function () {
     var bwrSrc = gulp.src(bowerFiles,{read:true});
 
     var jsSrc =  gulp.src(javascript,{read:true})
-                .pipe(angularFilesort());
-    var cssSrc = gulp.src(stylesheet, {read: true},{cwd:'client'})
+                .pipe(plugins.angularFilesort());
+    var cssSrc = gulp.src(stylesheet, {read: true},{cwd:'client'});
 
     var sources = series(bwrSrc,jsSrc,cssSrc)
-          .pipe(size({showFiles:true}));
+          .pipe(plugins.size({showFiles:true}));
 
     gulp.src('./client/index.html')
-        .pipe(inject(sources,{relative: true}))
+        .pipe(plugins.inject(sources,{relative: true}))
         .pipe(gulp.dest('client/'));
 });
 
@@ -84,26 +73,25 @@ gulp.task('watch', function () {
 
 });
 
-gulp.task('run',shell.task([
+gulp.task('run',plugins.shell.task([
     //'mongod  --dbpath /data/db --logpath log/mongodb.log',
     'node server/server.js'
 ]));
 
 gulp.task('production', function () {
-
     gulp.src(javascript)
-        .pipe(concat('script.js'))
-        .pipe(ngAnnotate())
-        .pipe(stripDebug())
-        .pipe(uglify())
-        .pipe(size({title:'javascript'}))
+        .pipe(plugins.concat('script.js'))
+        .pipe(plugins.ngAnnotate())
+        .pipe(plugins.stripDebug())
+        .pipe(plugins.uglify())
+        .pipe(plugins.size({title:'javascript'}))
         .pipe(gulp.dest('client/build/'));
 
     gulp.src(stylesheet)
-        .pipe(concat('styles.css'))
-        .pipe(autoprefix('last 2 versions'))
-        .pipe(minifyCSS())
-        .pipe(size({title:'stylesheet'}))
+        .pipe(plugins.concat('styles.css'))
+        .pipe(plugins.autoprefixer('last 2 versions'))
+        .pipe(plugins.minifyCss())
+        .pipe(plugins.size({title:'stylesheet'}))
         .pipe(gulp.dest('client/build/'));
 });
 

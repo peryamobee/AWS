@@ -14,7 +14,7 @@ module.exports = function init ( db ){
 
     this.saveLog = function saveLog(req, res){
         var logObject = req.body;
-        logObject.create =  new Date();
+        logObject.create =  new Date(Date.now());
         logCollection.save(logObject,{w:1}, function (err, record) {
             res.send(record.ops[0]);
         });
@@ -42,7 +42,7 @@ module.exports = function init ( db ){
                 },
                 records:{
                     $push:"$$ROOT"
-                },
+                }
 
             }
         },{

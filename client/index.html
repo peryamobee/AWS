@@ -6,6 +6,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="build/index.css">
+    <link rel="stylesheet" href="build/styles.css">
     <!-- endinject -->
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="57x57"   href="images/favIcon/apple-icon-57x57.png">
@@ -28,6 +29,8 @@
 </head>
 <body  >
 <div  ng-controller="mainController">
+    <button ng-click="login()">facebook login</button>
+    <button ng-click="me()">facebook get me</button>
 
     <div class="day" ng-repeat="day in Log.list">
         <div  class="day-title" >
@@ -35,13 +38,12 @@
         </div>
         <div class="record" ng-repeat="record in day.records" >
             <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
-            <span class="record-text" ng-bind="record.text"></span>
+            <div class="record-text" ng-bind="record.text"></div>
         </div>
     </div>
 
     <form ng-submit="addLog(model.log)">
     <div class="record" >
-        <div class="record-create-time" ng-bind="">{{timeNow}}</div>
         <div class="log-input">
             <input
                    type="text"
@@ -60,7 +62,7 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/lodash/lodash.js"></script>
-<script src="index.js"></script>
+<script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
 <script src="src/logs.srv.js"></script>
 <script src="src/index.js"></script>
 <!-- endinject -->

@@ -45,7 +45,7 @@ angular.module('Logs',[])
         }
         function addThisDay(){
             var now = moment();
-            _.list.push({
+            _list.push({
                 _id:{
                     day: now.format('DD'),
                     month:now.format('MM'),

@@ -4,7 +4,7 @@
 *.css.map
 
 bower_components
-
+.idea
 build
 data/db/*
 data/log/*

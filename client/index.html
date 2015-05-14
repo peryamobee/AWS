@@ -6,6 +6,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="build/index.css">
+    <link rel="stylesheet" href="build/styles.css">
     <!-- endinject -->
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="57x57"   href="images/favIcon/apple-icon-57x57.png">
@@ -35,7 +36,7 @@
         </div>
         <div class="record" ng-repeat="record in day.records" >
             <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
-            <span class="record-text" ng-bind="record.text"></span>
+            <div class="record-text" ng-bind="record.text"></div>
         </div>
     </div>
 
@@ -59,8 +60,6 @@
 <!-- inject:js -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/lodash/lodash.js"></script>
-<script src="index.js"></script>
 <script src="src/logs.srv.js"></script>
 <script src="src/index.js"></script>
 <!-- endinject -->

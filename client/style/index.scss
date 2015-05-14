@@ -1,66 +1,52 @@
-$background-color-1 :  rgba(255,255,255,0.1);
-$Foreground-color-1 : #000;
-
-$bold-color-1:#ccc;
-$border-color-1:#ccc;
-body{
+body {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKklEQVQIW2Ncs2bN/y9fvjDw8PAwwGjGBQsW/P/z5w8DCwsLA4xmpEwlAK+ALM1vVcnuAAAAAElFTkSuQmCC);
   padding: 1rem;
   direction: rtl;
-  box-sizing: border-box; /* css3 rec */
-  -moz-box-sizing: border-box; /* ff2 */
-  -ms-box-sizing: border-box; /* ie8 */
-  -webkit-box-sizing: border-box; /* safari3 */
-  -khtml-box-sizing: border-box; /* konqueror */
+  box-sizing: border-box;
+  /* css3 rec */
+  -moz-box-sizing: border-box;
+  /* ff2 */
+  -ms-box-sizing: border-box;
+  /* ie8 */
+  -webkit-box-sizing: border-box;
+  /* safari3 */
+  -khtml-box-sizing: border-box;
+  /* konqueror */ }
 
-}
-.day{
-  .day-title{
-    /*color: #a0a0a0;*/
-    /*color: #acacac;*/
-    display: inline-block;
-    color: #959595;
-    font-size: 30px;
-    border-bottom: 1px solid #7d7d7d;
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
-}
+.day .day-title {
+  /*color: #a0a0a0;*/
+  /*color: #acacac;*/
+  display: inline-block;
+  color: #959595;
+  font-size: 30px;
+  border-bottom: 1px solid #7d7d7d;
+  margin: 10px 0px;
+  padding: 0 10px; }
 
+.record {
+  color: #000;
+  overflow: hidden; }
+  .record .record-create-time {
+    float: right;
+    margin: 0 0.3em; }
 
-  .record{
-    color: $Foreground-color-1;
-
-    .record-create-time{
-      float: right;
-      margin:0 0.3em ;
-    }
-    .record-text{}
-  }
-
-
-
-
-
-.log-input{
+.log-input {
   display: block;
-  border:none;
-  background:$background-color-1;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
   color: #373737;
-  position:relative;
-  overflow: hidden;
-  input{
+  position: relative;
+  overflow: hidden; }
+  .log-input input {
     width: 100%;
-    background:transparent;
-    border:none;
-    outline: 1px solid $border-color-1;
-  }
-}
-.text-log{
-  color: #373737;
-}
+    background: transparent;
+    border: none;
+    outline: 1px solid #ccc; }
 
+.text-log {
+  color: #373737; }
 
-.log-input:focus{
-  outline: none;
-}
+.log-input:focus {
+  outline: none; }
+
+/*# sourceMappingURL=maps/index.css.map */

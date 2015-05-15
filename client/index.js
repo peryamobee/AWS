@@ -25,6 +25,9 @@ angular.module('Main',[
 
             })
     })
+    .run(function ($state) {
+        $state.go('root.main');
+    })
     .config(function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
     })

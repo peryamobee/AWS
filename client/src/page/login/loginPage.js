@@ -5,7 +5,7 @@ angular.module('mainPage',[ 'ui.router', 'ui.router.stateHelper' ])
     .constant('mainPageOutline',{
         name: 'login',
         templateUrl:'src/page/login/loginPage.html',
-        url:"/",
+        url:"/login",
         controller: 'loginController'
         //restrict: authenticatedOnly,
     })

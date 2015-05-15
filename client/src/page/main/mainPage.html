@@ -1,0 +1,30 @@
+<div >
+    <button ng-click="login()">facebook login</button>
+    <button ng-click="me()">facebook get me</button>
+
+    <div class="day" ng-repeat="day in Log.list">
+        <div  class="day-title" >
+            {{day._id.day}}/{{day._id.month}}
+        </div>
+        <div class="record" ng-repeat="record in day.records" >
+            <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
+            <div class="record-text" ng-bind="record.text"></div>
+        </div>
+    </div>
+
+    <form ng-submit="addLog(model.log)">
+        <div class="record" >
+            <div class="log-input">
+                <input
+                        type="text"
+                        autofocus="autofocus"
+                        ng-model="model.log"/>
+            </div>
+        </div>
+    </form>
+
+    <span ng-bind="status"></span>
+
+    <br/>
+
+</div>

@@ -1,46 +1,41 @@
 /**
  * Created by pery on 08/05/2015.
  */
-angular.module('Main',['Logs','facebook'])
+angular.module('Main',[
+    'Logs'
+    ,'facebook'
+    ,'mainPage'
+    ,'ui.router'
+    ,'ui.router.stateHelper'
+])
     .config(function(FacebookProvider) {
     // Set your appId through the setAppId method or
     // use the shortcut in the initialize method directly.
         FacebookProvider.init('362389493857685');
     })
-    .controller('mainController',function($scope,Log,$timeout,$parse,Facebook){
-        $scope.login = function() {
-            // From now on you can use the Facebook service just as Facebook api says
-            Facebook.login(function(response) {
-                console.log(response);
-                // Do something with response.
+    .config(function (stateHelperProvider, mainPageOutline) {
+        stateHelperProvider
+            .state({
+                name: 'root',
+                template:'<ui-view></ui-view>',
+                controller:'rootController',
+                url:"^"
+                //,restrict: authenticatedOnly
+                ,children: [mainPageOutline]
+            })
+    }).run(function ($rootScope,$state) {
+        $rootScope.$on('$stateNotFound ',
+            function(event,unfoundStatem, toState, toParams, fromState, fromParams){
+                console.log(unfoundState.to);
+                console.log(unfoundState.toParams);
+                console.log(unfoundState.options);
+                event.preventDefault();
+                // transitionTo() promise will be rejected with
+                // a 'transition prevented' error
             });
-        };
-        var daysBack = 30;
+        $state.go('root.main');
+    })
+    .controller('rootController', function ($scope) {
 
-
-        $scope.$on('Facebook:statusChange', function(ev, data) {
-            console.log('Status: ', data);
-            if (data.status == 'connected') {
-                $scope.loggedIn = true;
-                Facebook.api('/me', function(user) {
-                    $scope.user = user;
-                    console.log(user);
-                    Log.updataList(daysBack,user.id);
-                });
-            } else {
-                $scope.loggedIn = false;
-            }
-        });
-
-        $scope.Log =  Log;
-        $scope.$parse = $parse;
-
-
-        $scope.addLog = function(){
-            Log.addLog($scope.model.log);
-            $scope.model.log = '';
-        };
-
-        $scope.moment = moment;
-
-    });
+    })
+;

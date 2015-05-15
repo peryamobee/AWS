@@ -9,33 +9,39 @@ angular.module('Main',[
     ,'ui.router.stateHelper'
 ])
     .config(function(FacebookProvider) {
-    // Set your appId through the setAppId method or
-    // use the shortcut in the initialize method directly.
         FacebookProvider.init('362389493857685');
     })
     .config(function (stateHelperProvider, mainPageOutline) {
+        //$urlRouterProvider.rule(function ($injector, $location) {
+        //});
         stateHelperProvider
             .state({
                 name: 'root',
                 template:'<ui-view></ui-view>',
                 controller:'rootController',
-                url:"^"
-                //,restrict: authenticatedOnly
+                url:"^",
+                resolve: { authenticate: authenticate }
                 ,children: [mainPageOutline]
+
             })
-    }).run(function ($rootScope,$state) {
-        $rootScope.$on('$stateNotFound ',
-            function(event,unfoundStatem, toState, toParams, fromState, fromParams){
-                console.log(unfoundState.to);
-                console.log(unfoundState.toParams);
-                console.log(unfoundState.options);
-                event.preventDefault();
-                // transitionTo() promise will be rejected with
-                // a 'transition prevented' error
-            });
-        $state.go('root.main');
+    })
+    .config(function ($urlRouterProvider) {
+        $urlRouterProvider.otherwise('/');
+    })
+    .run(function ($rootScope, $state) {
     })
     .controller('rootController', function ($scope) {
 
     })
 ;
+function authenticate($q, $rootScope, Facebook, $state, $timeout) {
+    return Facebook.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+            $rootScope.loggedIn = true;
+        } else {
+            $rootScope.loggedIn = false;
+            $state.go('root.login')
+        }
+    });
+}
+

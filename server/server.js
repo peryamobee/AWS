@@ -28,7 +28,7 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     }
     var logCollectionService = new (require('./src/Logs.Node.Module.js'))(db ,app);
     /*route*/
-    app.get('/log', logCollectionService.getLogs);
+    app.get('/log/:id', logCollectionService.getLogs);
     app.post('/log', logCollectionService.saveLog);
 
 

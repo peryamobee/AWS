@@ -2,8 +2,8 @@
  * Created by pery on 08/05/2015.
  */
 var logCollection = null;
-var route = null;
 var moment = require('moment');
+var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function init ( db ){
 
@@ -13,9 +13,9 @@ module.exports = function init ( db ){
     });
 
     this.saveLog = function saveLog(req, res){
-        var logObject = req.body;
-        logObject.create =  new Date(Date.now());
-        logCollection.save(logObject,{w:1}, function (err, record) {
+        var logDocument = req.body;
+        logDocument.create =  new Date(Date.now());
+        logCollection.save(logDocument,{w:1}, function (err, record) {
             res.send(record.ops[0]);
         });
     };
@@ -24,13 +24,14 @@ module.exports = function init ( db ){
         var fromDay = moment()
                 .subtract(req.query.lastDays||1,'day')
                 .startOf('day').toDate();
-
+        var userId = req.params.id;
         logCollection.aggregate([
            {
             $match:{
                 create:{
                     $gt: fromDay
-                }
+                },
+                userId:userId*1
             }
         },{
             $group:{

@@ -15,27 +15,26 @@ angular.module('Main',['Logs','facebook'])
                 // Do something with response.
             });
         };
-        $scope.getLoginStatus = function() {
-            Facebook.getLoginStatus(function(response) {
-                if(response.status === 'connected') {
-                    $scope.loggedIn = true;
-                } else {
-                    $scope.loggedIn = false;
-                }
-            });
-        };
-
-        $scope.me = function() {
-            Facebook.api('/me', function(response) {
-                $scope.user = response;
-                console.log(response);
-            });
-        };
-
         var daysBack = 30;
+
+
+        $scope.$on('Facebook:statusChange', function(ev, data) {
+            console.log('Status: ', data);
+            if (data.status == 'connected') {
+                $scope.loggedIn = true;
+                Facebook.api('/me', function(user) {
+                    $scope.user = user;
+                    console.log(user);
+                    Log.updataList(daysBack,user.id);
+                });
+            } else {
+                $scope.loggedIn = false;
+            }
+        });
+
         $scope.Log =  Log;
         $scope.$parse = $parse;
-        Log.updataList(daysBack);
+
 
         $scope.addLog = function(){
             Log.addLog($scope.model.log);

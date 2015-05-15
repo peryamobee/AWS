@@ -4,31 +4,57 @@
 angular.module('Logs',[])
     .service('Log', function ($http) {
 
-        this.getLogs = getLogs;
-        this.add = getLogs;
+        this.updataList = updataList;
+        this.addLog = addLog;
+        this.userId = null;
 
-        function addLog(logText){
+        Object.defineProperties(this,{
+            list:{
+                get:function(){
+                    return _list;
+                }
+            }
+        });
+
+        var _list = [];
+
+        function addLog(logText, userId){
             return $http.post('/log',{
-                log:logText
+                text:logText
             }).then(function (res) {
+                _list.slice(-1)[0].records.push(res.data);
                 return res.data
             })
         }
 
-        function getLogs(lastDays){
-            return $http.get('/log',{
+        function updataList(lastDays, userId){
+            return $http.get('/log/'+userId,{
                 params:{
                     lastDays:lastDays
                 }
             }).then(function (res) {
-                res.data.forEach(function (day) {
-                    day.records.forEach(function (record) {
-                        record.create = moment(record.create).format('HH:MM');
-                    })
-                });
-                return res.data;
+                angular.copy(res.data,_list) ;
+                var lastDay = _list.slice(-1)[0];
+                var d = lastDay._id;
+                if(!moment().isSame(d.date,'day')){
+                    addThisDay();
+                }
+                //return _list;
 
 
             })
         }
+        function addThisDay(){
+            var now = moment();
+            _list.push({
+                _id:{
+                    day: now.format('DD'),
+                    month:now.format('MM'),
+                    year: now.format('yyyy')
+                },
+                records:[]
+            })
+        }
+
+
     });

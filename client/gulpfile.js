@@ -33,7 +33,7 @@ gulp.task('index', function () {
     });
     var bwrSrc = gulp.src(bowerFiles,{read:false});
 
-    var jsSrc =  gulp.src(javascript,{read:false})
+    var jsSrc =  gulp.src(javascript,{read:true})
                 .pipe(plugins.angularFilesort());
     var cssSrc = gulp.src(stylesheet, {read: false},{cwd:''});
 

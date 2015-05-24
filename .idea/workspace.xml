@@ -2,53 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2222447c-c140-4be2-bd56-4748000ee3db" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/page/main/main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/page/main/topbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/page/main/topbar.scss" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\template\favicon.html" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\README.md" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\api\angular-ui-router.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\bower.json" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\release\angular-ui-router.js" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\client\ui-route\src\common.js" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\system\runMongod.cmd" afterPath="" />
-      <change type="DELETED" beforePath="A:\CODE\AWS\system\runMongodDeamon.cmd" afterPath="" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\android-icon-144x144.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/android-icon-144x144.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\android-icon-192x192.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/android-icon-192x192.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\android-icon-36x36.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/android-icon-36x36.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\android-icon-48x48.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/android-icon-48x48.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\android-icon-72x72.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/android-icon-72x72.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\android-icon-96x96.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/android-icon-96x96.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-114x114.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-114x114.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-120x120.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-120x120.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-144x144.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-144x144.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-152x152.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-152x152.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-180x180.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-180x180.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-57x57.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-57x57.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-60x60.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-60x60.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-72x72.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-72x72.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-76x76.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-76x76.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon-precomposed.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon-precomposed.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\apple-icon.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/apple-icon.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\browserconfig.xml" afterPath="$PROJECT_DIR$/client/src/images/favIcon/browserconfig.xml" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\favicon-16x16.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/favicon-16x16.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\favicon-32x32.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/favicon-32x32.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\favicon-96x96.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/favicon-96x96.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\favicon.ico" afterPath="$PROJECT_DIR$/client/src/images/favIcon/favicon.ico" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\manifest.json" afterPath="$PROJECT_DIR$/client/src/images/favIcon/manifest.json" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\ms-icon-144x144.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/ms-icon-144x144.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\ms-icon-150x150.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/ms-icon-150x150.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\ms-icon-310x310.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/ms-icon-310x310.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\images\favIcon\ms-icon-70x70.png" afterPath="$PROJECT_DIR$/client/src/images/favIcon/ms-icon-70x70.png" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\src\logs.srv.js" afterPath="$PROJECT_DIR$/client/src/data/logs.srv.js" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\src\user.srv.js" afterPath="$PROJECT_DIR$/client/src/data/user.srv.js" />
-      <change type="MOVED" beforePath="A:\CODE\AWS\client\style\index.scss" afterPath="$PROJECT_DIR$/client/src/page/main/index.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/bucketPublicPolicy.snippet.json" />
+      <change type="MOVED" beforePath="A:\CODE\AWS\client\index.html" afterPath="$PROJECT_DIR$/client/src/index.html" />
+      <change type="MOVED" beforePath="A:\CODE\AWS\client\index.js" afterPath="$PROJECT_DIR$/client/src/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/gulpfile.js" afterPath="$PROJECT_DIR$/client/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.js" afterPath="$PROJECT_DIR$/client/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/package.json" afterPath="$PROJECT_DIR$/client/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AWS.iws" />
@@ -69,88 +27,136 @@
     <favorites_list name="AWS" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="topbar.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logs.srv.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/data/logs.srv.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/page/main/index.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/gulpfile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7021739">
-              <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.615385">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="topbar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/page/main/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.307692">
-              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="topbar.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-13.076923">
+                  <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="logs.srv.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/data/logs.srv.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/page/main/index.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.65384614">
+                  <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/gulpfile.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bucketPublicPolicy.snippet.json" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/system/bucketPublicPolicy.snippet.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.281203">
+                  <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="topbar.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-3.2692308">
+                  <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/page/main/main.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-18.307692">
+                  <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.20451128">
+                  <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-12.423077">
+                  <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/build/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-12.423077">
+                  <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -166,14 +172,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/src/Logs.srv.js" />
         <option value="$PROJECT_DIR$/.npmrc" />
         <option value="$PROJECT_DIR$/public/.bowerrc" />
         <option value="$PROJECT_DIR$/npmrc" />
         <option value="$PROJECT_DIR$/client/build/Logs.srv.js" />
         <option value="$PROJECT_DIR$/.bowerrc" />
-        <option value="$PROJECT_DIR$/client/build/index.html" />
         <option value="$PROJECT_DIR$/server/mongoNative.js" />
         <option value="$PROJECT_DIR$/client/some.srv.js" />
         <option value="$PROJECT_DIR$/client/src/add.js" />
@@ -188,7 +192,6 @@
         <option value="$PROJECT_DIR$/client/template.html" />
         <option value="$PROJECT_DIR$/client/template/favicon.html" />
         <option value="$PROJECT_DIR$/client/Logs.srv.js" />
-        <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/npm-debug.log" />
         <option value="$PROJECT_DIR$/runMongodDeamon.cmd" />
         <option value="$PROJECT_DIR$/server/server.js" />
@@ -210,13 +213,16 @@
         <option value="$PROJECT_DIR$/client/src/page/login/loginPage.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/index.js" />
-        <option value="$PROJECT_DIR$/client/gulpfile.js" />
         <option value="$PROJECT_DIR$/client/build/index.css" />
         <option value="$PROJECT_DIR$/client/style/index.scss" />
         <option value="$PROJECT_DIR$/client/style/topbar.scss" />
         <option value="$PROJECT_DIR$/client/template/main.html" />
         <option value="$PROJECT_DIR$/client/template/topbar.html" />
         <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/client/build/index.html" />
+        <option value="$PROJECT_DIR$/client/package.json" />
+        <option value="$PROJECT_DIR$/client/gulpfile.js" />
+        <option value="$PROJECT_DIR$/system/bucketPublicPolicy.snippet.json" />
       </list>
     </option>
   </component>
@@ -238,6 +244,9 @@
           </GulpTaskState>
           <GulpTaskState>
             <task-name>run</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>upload-to-s3</task-name>
           </GulpTaskState>
           <GulpTaskState>
             <task-name>production</task-name>
@@ -332,25 +341,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AWS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AWS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="system" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -646,8 +637,8 @@
       <recent name="A:\CODE\AWS\data\db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="A:\CODE\AWS\client\src\data" />
       <recent name="A:\CODE\AWS\client\src" />
+      <recent name="A:\CODE\AWS\client\src\data" />
       <recent name="A:\CODE\AWS\client\src\infra" />
       <recent name="A:\CODE\AWS\client\src\common\service" />
       <recent name="A:\CODE\AWS\client\src\common" />
@@ -971,26 +962,32 @@
       <option name="project" value="LOCAL" />
       <updated>1432380245582</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="reformat folder structure  - still not configured gulp">
+      <created>1432453387349</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1432453387349</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="0" width="1853" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983193" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32878152" sideWeight="0.5019115" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52178425" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24156117" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24156117" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09947917" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26265824" sideWeight="0.49808848" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27251732" sideWeight="0.3322785" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16620189" sideWeight="0.6677215" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16620189" sideWeight="0.33379695" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16620189" sideWeight="0.6662031" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959038" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23755187" sideWeight="0.49808848" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23734178" sideWeight="0.49808848" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="SvgViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1063,19 +1060,20 @@
     <MESSAGE value="clean up &amp; fix auth flow &amp; add auth &amp; add empy login page" />
     <MESSAGE value="somthig not work" />
     <MESSAGE value="something  not work" />
-    <option name="LAST_COMMIT_MESSAGE" value="something  not work" />
+    <MESSAGE value="reformat folder structure  - still not configured gulp" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformat folder structure  - still not configured gulp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="43" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/index.js">
+    <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -1109,7 +1107,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
+    <entry file="file://$PROJECT_DIR$/client/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
@@ -1117,7 +1115,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.js">
+    <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -1151,7 +1149,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
+    <entry file="file://$PROJECT_DIR$/client/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
@@ -1274,13 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/.npmrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.57894737">
@@ -1288,24 +1279,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/.bowerrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/runMongodDeamon.cmd">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02529762">
           <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32352942">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1363,22 +1340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/build/topbar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/build/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7256098">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.076923">
@@ -1419,26 +1380,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.js">
+    <entry file="file://$PROJECT_DIR$/client/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
+    <entry file="file://$PROJECT_DIR$/client/.npmrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.615385">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20451128">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7021739">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/bucketPublicPolicy.snippet.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.281203">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>

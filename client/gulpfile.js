@@ -2,36 +2,35 @@
  * Created by pery on 09/05/2015.
  */
 var gulp = require('gulp');
-var plugins = require('gulp-load-plugins')({
-    rename: {
-    }
-});
+var plugins = require('gulp-load-plugins')({});
 
 var javascript = ['./src/**/*.js','./index.js'];
-var stylesheet = ['./build/*.css'];
-var sassFiles = ['./style/*.scss','src/page/**/*.scss'];
+var stylesheet = ['./build/**/*.css'];
+var sassFiles = ['./src/**/*.scss'];
+var bowerFilesConfig = {
+    paths: {
+        bowerDirectory: 'bower_components',
+        bowerrc: '.bowerrc',
+        bowerJson: 'bower.json'
+    }
+};
 gulp.task('sass', function () {
+
     gulp.src(sassFiles)
         .pipe(plugins.plumber())
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.sass().on('error', plugins.sass.logError ))
         .pipe(plugins.sourcemaps.write('./maps'))
         .pipe(plugins.size({showFiles:true}))
+        .pipe(plugins.concat('style.css'))
         .pipe(plugins.plumber.stop())
         .pipe(gulp.dest('build/'))
 });
 
 gulp.task('index', function () {
-    var mainBowerFiles = require('main-bower-files');
+    var  BowerFiles = require('main-bower-files')( bowerFilesConfig );
     var series = require('stream-series');
-    var bowerFiles = mainBowerFiles({
-            paths: {
-                bowerDirectory: 'bower_components',
-                bowerrc: '.bowerrc',
-                bowerJson: 'bower.json'
-            }
-    });
-    var bwrSrc = gulp.src(bowerFiles,{read:false});
+    var bwrSrc = gulp.src( mainBowerFiles,{read:false});
 
     var jsSrc =  gulp.src(javascript,{read:true})
                 .pipe(plugins.angularFilesort());
@@ -41,11 +40,11 @@ gulp.task('index', function () {
     var sources = series(bwrSrc,jsSrc,cssSrc)
           .pipe(plugins.size({showFiles:true}));
 
-    gulp.src('./index.html')
+    gulp.src('./src/index.html')
         .pipe(plugins.plumber())
         .pipe(plugins.inject(sources,{relative: true}))
         .pipe(plugins.plumber.stop())
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('./src'));
 });
 
 /**
@@ -81,8 +80,22 @@ gulp.task('run',plugins.shell.task([
     'node server/server.js'
 ]));
 
+gulp.task('upload-to-s3',plugins.shell.task([
+    'aws s3 cp build s3://log-life-mongo-js --recursive'
+]));
+
 gulp.task('production', function () {
-    gulp.src(javascript)
+    var series = require('stream-series');
+    //var mainBowerFiles = require('main-bower-files')( bowerFilesConfig );
+    var bowerMain = require('bower-main');
+
+
+    var bwrSrcJs = gulp.src( bowerMain('js').normal);
+    var jsSrc =  gulp.src(javascript)
+        .pipe(plugins.angularFilesort());
+
+   var js = series(bwrSrcJs,jsSrc)
+        .pipe(plugins.size({showFiles:true}))
         .pipe(plugins.concat('script.js'))
         .pipe(plugins.ngAnnotate())
         .pipe(plugins.stripDebug())
@@ -90,12 +103,28 @@ gulp.task('production', function () {
         .pipe(plugins.size({title:'javascript'}))
         .pipe(gulp.dest('build/'));
 
-    gulp.src(stylesheet)
+    var bwrSrcCss = gulp.src( bowerMain('css').normal);
+    var cssSrc = gulp.src(stylesheet);
+
+    var css = series(bwrSrcCss,cssSrc)
         .pipe(plugins.concat('styles.css'))
         .pipe(plugins.autoprefixer('last 2 versions'))
         .pipe(plugins.minifyCss())
         .pipe(plugins.size({title:'stylesheet'}))
         .pipe(gulp.dest('build/'));
+
+    //var finalSrc = gulp.src(['./build/**/*.css','./build/**/*.js']);
+
+    gulp.src('./src/index.html')
+        .pipe(plugins.inject(series(js,css),{relative: false, ignorePath:'/build'}))
+        .pipe(gulp.dest('./build'))
+    ;
+
+    gulp.src(['*.png','*.ico'],{cwd:'src/images/**/'})
+        .pipe(gulp.dest('./build/images'));
+
+    gulp.start('upload-to-s3');
+
 });
 
 gulp.task('default',['sass','index','watch']);

@@ -68,9 +68,9 @@ gulp.task('watch', function () {
         }
     });
 
-    gulp.watch(sassFiles,{debounceDelay:100 },['sass'], function (event) {
-        notify(event);
-    });
+    //gulp.watch(sassFiles,{debounceDelay:100 },['sass'], function (event) {
+    //    notify(event);
+    //});
 
     function notify(event){
         console.log('File ' + event.path + ' was ' + event.type );

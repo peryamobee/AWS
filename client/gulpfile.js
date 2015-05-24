@@ -35,6 +35,7 @@ gulp.task('index', function () {
 
     var jsSrc =  gulp.src(javascript,{read:true})
                 .pipe(plugins.angularFilesort());
+
     var cssSrc = gulp.src(stylesheet, {read: false},{cwd:''});
 
     var sources = series(bwrSrc,jsSrc,cssSrc)

@@ -1,7 +1,7 @@
 /**
  * Created by pery on 08/05/2015.
  */
-angular.module('Main',[
+var mainApp = angular.module('Main',[
     'Logs'
     ,'facebook'
 ])
@@ -17,7 +17,7 @@ angular.module('Main',[
             }
         });
     })
-    .controller('mainController',function($scope,$rootScope,Log,$parse,Facebook, authenticate){
+    .controller('mainController',function($scope,$rootScope,Log,$parse,Facebook, authenticate, $injector){
         var daysBack = 30;
         authenticate.then(function () {
             $scope.login = function() {

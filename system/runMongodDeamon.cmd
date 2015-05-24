@@ -1,1 +1,0 @@
-mongod  --dbpath \data\db --logpath \logs\mongodb.log

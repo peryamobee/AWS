@@ -1,0 +1,21 @@
+.topbar{
+  direction: ltr;
+  background-color: lightslategray;
+  padding: 0.2rem 2em;
+  /* width: calc(100% - 4rem); */
+  position: fixed;
+  left: 0;
+  right: 0;
+  top:0;
+  *{
+    vertical-align: middle;
+  }
+  .user-image img{
+    width: 2em;
+    height: 2em;
+  }
+  .user-name{
+    display: inline-block;
+    min-width: 10em;
+  }
+}

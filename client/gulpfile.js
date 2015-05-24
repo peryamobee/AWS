@@ -28,14 +28,15 @@ gulp.task('sass', function () {
 });
 
 gulp.task('index', function () {
-    var  BowerFiles = require('main-bower-files')( bowerFilesConfig );
+    var  bowerFiles = require('main-bower-files')( bowerFilesConfig );
     var series = require('stream-series');
-    var bwrSrc = gulp.src( mainBowerFiles,{read:false});
-
+    var bwrSrc = gulp.src( bowerFiles,{read:false});
     var jsSrc =  gulp.src(javascript,{read:true})
                 .pipe(plugins.angularFilesort());
 
-    var cssSrc = gulp.src(stylesheet, {read: false},{cwd:''});
+    var cssSrc = gulp.src(sassFiles, {read: true},{cwd:''})
+            .pipe(plugins.rename({extname: ".css" }))
+        ;
 
     var sources = series(bwrSrc,jsSrc,cssSrc)
           .pipe(plugins.size({showFiles:true}));
@@ -45,6 +46,8 @@ gulp.task('index', function () {
         .pipe(plugins.inject(sources,{relative: true}))
         .pipe(plugins.plumber.stop())
         .pipe(gulp.dest('./src'));
+
+
 });
 
 /**
@@ -92,13 +95,14 @@ gulp.task('production', function () {
 
     var bwrSrcJs = gulp.src( bowerMain('js').normal);
     var jsSrc =  gulp.src(javascript)
-        .pipe(plugins.angularFilesort());
+        .pipe(plugins.angularFilesort())
+        .pipe(plugins.ngAnnotate())
+        .pipe(plugins.stripDebug())
+        ;
 
    var js = series(bwrSrcJs,jsSrc)
         .pipe(plugins.size({showFiles:true}))
         .pipe(plugins.concat('script.js'))
-        .pipe(plugins.ngAnnotate())
-        .pipe(plugins.stripDebug())
         .pipe(plugins.uglify())
         .pipe(plugins.size({title:'javascript'}))
         .pipe(gulp.dest('build/'));

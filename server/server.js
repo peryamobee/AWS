@@ -6,19 +6,29 @@
 var http      = require('http');
 var MongoClient = require('mongodb').MongoClient;
 
-
+var sass    = require('node-sass'), // We're adding the node-sass module
+    path    = require('path'),      // Also loading the path module
+    sassMiddleware = require('node-sass-middleware')
+;
 
 var Logs = null;
 //express config init
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
+
 app.use(express.static(__dirname + '/../client/')); // for parsing application/json
+app.use(sassMiddleware({
+    src: __dirname+'/../client/src',
+    dest: __dirname,
+    debug: true
+}));
+app.use(express.static(__dirname + '/../client/src/')); // for parsing application/json
 app.use(bodyParser.json()); // for parsing application/json
 
 // Routes
 app.get('/', function(req, res) {
-    res.sendFile( __dirname + '/../client/build/index.html')
+    res.sendFile( __dirname + '/../client/src/index.html')
 });
 
 MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {

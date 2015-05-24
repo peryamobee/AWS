@@ -19,9 +19,13 @@ var app = express();
 
 app.use(express.static(__dirname + '/../client/')); // for parsing application/json
 app.use(sassMiddleware({
-    src: __dirname+'/../client/src',
-    dest: __dirname,
-    debug: true
+    root:__dirname,
+    src: '/../client/src',
+    dest:'',
+    sourceMap:__dirname + '/../client/src/maps',
+    debug: true,
+    outputStyle: 'expanded',
+    response:true
 }));
 app.use(express.static(__dirname + '/../client/src/')); // for parsing application/json
 app.use(bodyParser.json()); // for parsing application/json

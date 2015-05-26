@@ -1,22 +1,49 @@
 /**
  * Created by pery on 08/05/2015.
  */
-var mainApp = angular.module('Main',[
+angular.module('Main',[
     'Logs'
     ,'facebook'
+    ,'ui.router'
+    ,'ui.router.stateHelper'
 ])
     .config(function(FacebookProvider) {
         FacebookProvider.init('362389493857685');
     })
+    .config(function (stateHelperProvider,$urlRouterProvider, $stateProvider ) {
+            stateHelperProvider
+                .state({
+                    name:'root',
+                    template:'<ui-view />',
+                    controller:'mainController'
+                })
+    })
+    .run(function($rootScope){
+        $rootScope.on('$stateChangeStart'
+            ,function(event, toState, toParams, fromState, fromParams){
 
-    .config(function($http){
-            $http.interceptors.push('myHttpInterceptor');
+
+                var realServerDomain ='http://54.186.42.197:8080/';
+                var localServerDomain = 'localhost:8080';
+                if( $state.include('local')){
+                    config.url.replace(/^\/\//,localServerDomain);
+                }else{
+
+                }
+                //event.preventDefault();
+                // transitionTo() promise will be rejected with
+                // a 'transition prevented' error
+            })
+    })
+    .config(function($httpProvider){
+            $httpProvider.interceptors.push('theRightServer');
     })
     .factory('theRightServer',function () {
+
+
         return {
-            // optional method
             'request': function(config) {
-                // do something on success
+                config.url.replace(/^\/\//,realServerDomain);
                 return config;
             },
 

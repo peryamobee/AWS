@@ -39,7 +39,9 @@ gulp.task('index', function () {
         ;
 
     var sources = series(bwrSrc,jsSrc,cssSrc)
-          .pipe(plugins.size({showFiles:true}));
+          .pipe(plugins.size({showFiles:true}))
+          .pipe(plugins.preprocess({context: { NODE_ENV: 'development', DEBUG: true}}))
+    ;
 
     gulp.src('./src/index.html')
         .pipe(plugins.plumber())

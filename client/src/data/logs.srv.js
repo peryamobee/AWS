@@ -19,7 +19,7 @@ angular.module('Logs',[])
         var _list = [];
 
         function addLog(logText, userId){
-            return $http.post('//log',{
+            return $http.post('///log',{
                 text:logText
             }).then(function (res) {
                 _list.slice(-1)[0].records.push(res.data);
@@ -28,12 +28,12 @@ angular.module('Logs',[])
         }
 
         function updataList(lastDays, userId){
-            return $http.get('//log/'+userId,{
+            return $http.get('///log/'+userId,{
                 params:{
                     lastDays:lastDays
                 }
             }).then(function (res) {
-                angular.copy(res.data,_list) ;
+                angular.copy(res.data || [],_list) ;
                 var lastDay = _list.slice(-1)[0];
                 var d = lastDay._id;
                 if(!moment().isSame(d.date,'day')){

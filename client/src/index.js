@@ -6,6 +6,7 @@ angular.module('Main',[
     ,'facebook'
     ,'ui.router'
     ,'ui.router.stateHelper'
+    ,'appConfig'
 ])
     .config(function(FacebookProvider) {
         FacebookProvider.init('362389493857685');
@@ -14,46 +15,56 @@ angular.module('Main',[
             stateHelperProvider
                 .state({
                     name:'root',
-                    template:'<ui-view />',
-                    controller:'mainController'
+                    //url:'^',
+                    template:'<ui-view name="top"></ui-view> <ui-view name="main" ></ui-view>',
+                    controller:'mainController',
+                    children:[{
+                        name:'border',
+                        url:'^',
+                        views:{
+                            'top':{
+                              templateUrl:'page/main/topbar.html'
+                            },
+                            'main': {
+                                templateUrl:'page/main/main.html'
+                            }
+                        }
+                    }]
                 })
+
     })
-    .run(function($rootScope){
-        $rootScope.on('$stateChangeStart'
-            ,function(event, toState, toParams, fromState, fromParams){
-
-
-                var realServerDomain ='http://54.186.42.197:8080/';
-                var localServerDomain = 'localhost:8080';
-                if( $state.include('local')){
-                    config.url.replace(/^\/\//,localServerDomain);
-                }else{
-
-                }
-                //event.preventDefault();
-                // transitionTo() promise will be rejected with
-                // a 'transition prevented' error
-            })
-    })
-    .config(function($httpProvider){
-            $httpProvider.interceptors.push('theRightServer');
+    //.constant('configuration',{})
+    //.run(function($rootScope, $state, $http, configuration){
+    //
+    //    $rootScope.$on('$stateChangeStart'
+    //        ,function(event, toState, toParams, fromState, fromParams){
+    //            var realDomain ='http://54.186.42.197:8080/';
+    //            var localDomain = 'localhost:8080';
+    //            if( $state.include('debug')){
+    //                configuration.serverDomain = realDomain;
+    //            }else{
+    //                configuration.serverDomain = localDomain;
+    //            }
+    //            //event.preventDefault();
+    //            // transitionTo() promise will be rejected with
+    //            // a 'transition prevented' error
+    //
+    //        });
+    //})
+    .config(function ($httpProvider) {
+        $httpProvider.interceptors.push('theRightServer');
     })
     .factory('theRightServer',function () {
-
-
         return {
             'request': function(config) {
-                config.url.replace(/^\/\//,realServerDomain);
+                config.url = config.url.replace(/^\/\/\//,'//localhost:8080/');
                 return config;
             },
 
             // optional method
             'requestError': function(rejection) {
                 // do something on error
-                if (canRecover(rejection)) {
-                    return responseOrNewPromise
-                }
-                return $q.reject(rejection);
+                return rejection;
             },
 
             // optional method
@@ -64,11 +75,8 @@ angular.module('Main',[
 
             // optional method
             'responseError': function(rejection) {
-                // do something on error
-                if (canRecover(rejection)) {
-                    return responseOrNewPromise
-                }
-                return $q.reject(rejection);
+
+                return rejection;
             }
         };
     })

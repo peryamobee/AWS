@@ -6,21 +6,22 @@ angular.module('Main',[
     ,'facebook'
     ,'ui.router'
     ,'ui.router.stateHelper'
-    ,'appConfig'
 ])
     .config(function(FacebookProvider) {
         FacebookProvider.init('362389493857685');
     })
-    .config(function (stateHelperProvider,$urlRouterProvider, $stateProvider ) {
+    .config(function (stateHelperProvider,$urlRouterProvider, $stateProvider,$locationProvider ) {
+            $locationProvider.html5Mode(true);
             stateHelperProvider
                 .state({
                     name:'root',
-                    //url:'^',
+                    url:'/',
                     template:'<ui-view name="top"></ui-view> <ui-view name="main" ></ui-view>',
                     controller:'mainController',
+                    abstract:true,
                     children:[{
-                        name:'border',
-                        url:'^',
+                        name:'main',
+                        url:'',
                         views:{
                             'top':{
                               templateUrl:'page/main/topbar.html'
@@ -33,50 +34,17 @@ angular.module('Main',[
                 })
 
     })
-    //.constant('configuration',{})
-    //.run(function($rootScope, $state, $http, configuration){
-    //
-    //    $rootScope.$on('$stateChangeStart'
-    //        ,function(event, toState, toParams, fromState, fromParams){
-    //            var realDomain ='http://54.186.42.197:8080/';
-    //            var localDomain = 'localhost:8080';
-    //            if( $state.include('debug')){
-    //                configuration.serverDomain = realDomain;
-    //            }else{
-    //                configuration.serverDomain = localDomain;
-    //            }
-    //            //event.preventDefault();
-    //            // transitionTo() promise will be rejected with
-    //            // a 'transition prevented' error
-    //
-    //        });
-    //})
     .config(function ($httpProvider) {
         $httpProvider.interceptors.push('theRightServer');
     })
     .factory('theRightServer',function () {
+        var server = '//localhost:8080/';
+        //var server = 'http://54.186.42.197:8080/';
+
         return {
             'request': function(config) {
-                config.url = config.url.replace(/^\/\/\//,'//localhost:8080/');
+                config.url = config.url.replace(/^\/\/\//,server);
                 return config;
-            },
-
-            // optional method
-            'requestError': function(rejection) {
-                // do something on error
-                return rejection;
-            },
-
-            // optional method
-            'response': function(response) {
-                // do something on success
-                return response;
-            },
-
-            // optional method
-            'responseError': function(rejection) {
-
-                return rejection;
             }
         };
     })

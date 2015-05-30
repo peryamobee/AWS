@@ -3,7 +3,9 @@
  */
 
 // Module dependencies.
-var http      = require('http');
+var http      = require('http'),
+    path      =  require('path')
+    ;
 var MongoClient = require('mongodb').MongoClient;
 
 var sass    = require('node-sass'), // We're adding the node-sass module
@@ -16,24 +18,21 @@ var Logs = null;
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
+//app.configure(function() {
+    app.use(express.static(__dirname + '/../client/')); // for parsing application/json
+    app.use(sassMiddleware({
+        root: __dirname,
+        src: '/../client/src',
+        dest: '',
+        sourceMap: __dirname + '/../client/src/maps',
+        debug: false,
+        outputStyle: 'expanded',
+        response: true
+    }));
+    app.use(express.static(__dirname + '/../client/src/')); // for parsing application/json
+    app.use(bodyParser.json()); // for parsing application/json
+//});
 
-app.use(express.static(__dirname + '/../client/')); // for parsing application/json
-app.use(sassMiddleware({
-    root:__dirname,
-    src: '/../client/src',
-    dest:'',
-    sourceMap:__dirname + '/../client/src/maps',
-    debug: true,
-    outputStyle: 'expanded',
-    response:true
-}));
-app.use(express.static(__dirname + '/../client/src/')); // for parsing application/json
-app.use(bodyParser.json()); // for parsing application/json
-
-// Routes
-app.get('/', function(req, res) {
-    res.sendFile( __dirname + '/../client/src/index.html')
-});
 
 MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     if(err){
@@ -55,6 +54,12 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
 
     console.log("we are connected");
 
+    // Routes
+    app.get('/*', function(req, res) {
+        var resolvedPath = path.resolve(__dirname + '/../client/src/index.html');
+        console.log('send file:', resolvedPath );
+        res.sendFile( resolvedPath  )
+    });
 });
 
 

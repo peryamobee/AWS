@@ -93,6 +93,7 @@ gulp.task('production', function () {
     var series = require('stream-series');
     //var mainBowerFiles = require('main-bower-files')( bowerFilesConfig );
     var bowerMain = require('bower-main');
+    var templateCache = require('gulp-angular-templatecache');
 
 
     var bwrSrcJs = gulp.src( bowerMain('js').normal);
@@ -102,10 +103,14 @@ gulp.task('production', function () {
         .pipe(plugins.stripDebug())
         ;
 
-   var js = series(bwrSrcJs,jsSrc)
+   var htmlCache = gulp.src('src/**/*.html')
+        .pipe(templateCache())
+       ;
+
+   var js = series(bwrSrcJs,jsSrc,htmlCache)
         .pipe(plugins.size({showFiles:true}))
         .pipe(plugins.concat('script.js'))
-        .pipe(plugins.uglify())
+        //.pipe(plugins.uglify())
         .pipe(plugins.size({title:'javascript'}))
         .pipe(gulp.dest('build/'));
 

@@ -18,8 +18,8 @@ angular.module('Main',[
         $httpProvider.interceptors.push('theRightServer');
     })
     .factory('theRightServer',function () {
-        var server = '//localhost:8080/';
-        //var server = 'http://54.186.42.197:8080/';
+        //var server = '//localhost:8080/';
+        var server = 'http://54.186.42.197:8080/';
 
         return {
             'request': function(config) {

@@ -11,16 +11,22 @@ module.exports = function init ( db ){
         if(err) throw err;
         console.log("logs collection arrive");
     });
+    return {
+        saveLog: saveLog,
+        getLogs:getLogs
+    };
 
-    this.saveLog = function saveLog(req, res){
+    function saveLog(req, res){
         var logDocument = req.body;
         logDocument.create =  new Date(Date.now());
+        //logDocument.text
+        //logDocument.hashTag
         logCollection.save(logDocument,{w:1}, function (err, record) {
             res.send(record.ops[0]);
         });
-    };
+    }
 
-    this.getLogs = function getLogs(req, res) {
+    function getLogs(req, res) {
         var fromDay = moment()
                 .subtract(req.query.lastDays||1,'day')
                 .startOf('day').toDate();

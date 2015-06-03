@@ -34,11 +34,11 @@ angular.module('Logs',[])
                 }
             }).then(function (res) {
                 angular.copy(res.data || [],_list) ;
-                var lastDay = _list.slice(-1)[0];
-                var d = lastDay._id;
-                if(!moment().isSame(d.date,'day')){
-                    addThisDay();
-                }
+                //var lastDay = _list.slice(-1)[0];
+                //var d = lastDay._id;
+                //if(!moment().isSame(d.date,'day')){
+                //    addThisDay();
+                //}
                 //return _list;
 
 

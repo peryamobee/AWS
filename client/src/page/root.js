@@ -18,6 +18,7 @@ angular.module('root.js',['mainPage.js'])
     .controller('mainController',function($scope,$rootScope,Log,$parse,Facebook, authenticate, $injector){
         var daysBack = 30;
         authenticate.then(function () {
+
             $scope.login = function() {
                 // From now on you can use the Facebook service just as Facebook api says
                 Facebook.login(function(response) {

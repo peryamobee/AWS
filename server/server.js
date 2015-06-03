@@ -4,65 +4,49 @@
 
 // Module dependencies.
 var http      = require('http'),
-    path      =  require('path')
-    ;
-var MongoClient = require('mongodb').MongoClient;
+    path      =  require('path'),
+    MongoClient = require('mongodb').MongoClient;
 
-var sass    = require('node-sass'), // We're adding the node-sass module
-    path    = require('path'),      // Also loading the path module
-    sassMiddleware = require('node-sass-middleware')
-;
 
 var Logs = null;
 //express config init
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
-//app.configure(function() {
-    app.use(express.static(__dirname + '/../client/')); // for parsing application/json
-    app.use(sassMiddleware({
-        root: __dirname,
-        src: '/../client/src',
-        dest: '',
-        sourceMap: __dirname + '/../client/src/maps',
-        debug: false,
-        outputStyle: 'expanded',
-        response: true
-    }));
-    app.use(express.static(__dirname + '/../client/src/')); // for parsing application/json
-    app.use(bodyParser.json()); // for parsing application/json
-//});
-
+app.use(bodyParser.json()); // for parsing application/json
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*'); // * => allow all origins
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,OPTIONS,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Accept'); // add remove headers according to your needs
+    next()
+})
 
 MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     if(err){
         console.log(err);
         return;
     }
-    var logCollectionService = new (require('./src/Logs.Node.Module.js'))(db ,app);
+    var logService = new (require('./src/Logs.Node.Module'))(db ,app);
     /*route*/
-    app.get('/log/:id', logCollectionService.getLogs);
-    app.post('/log', logCollectionService.saveLog);
+    app.get('/log/:id', logService.getLogs);
+    app.post('/log', logService.saveLog);
+
+    //var userService = new (require('./src/User.Node.Module'))(db);
+    //app.get('/hash',userService.getHashTag);
+    //app.post('/hash',userService.addHashTag);
+    //app.get('user',userService.user);
+
+    console.log("we are connected to db");
 
 
-    var server = app.listen(8080, function () {
-        var host = server.address().address;
-        var port = server.address().port;
-        console.log('"mongoDB Native app" listening at http://%s:%s', host, port);
-
-    });
-
-    console.log("we are connected");
-
-    // Routes
-    app.get('/*', function(req, res) {
-        var resolvedPath = path.resolve(__dirname + '/../client/src/index.html');
-        console.log('send file:', resolvedPath );
-        res.sendFile( resolvedPath  )
-    });
 });
 
+var server = app.listen(8081, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('"mongoDB Native app" listening at http://%s:%s', host, port);
 
+});
 
 
 

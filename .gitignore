@@ -13,3 +13,4 @@ client/.idea
 .idea/workspace.xml
 client/npm-debug.log
 client/src/maps
+*.log

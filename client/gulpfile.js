@@ -4,7 +4,7 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')({});
 
-require('[gulp]/production.gulp');
+require('./gulp/production.gulp.js');
 
 var javascript = ['./src/**/*.js','./index.js'];
 var stylesheet = ['./build/**/*.css'];

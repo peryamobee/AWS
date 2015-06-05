@@ -4,6 +4,10 @@
 angular.module('Logs',[])
     .service('Log', function ($http) {
 
+        var _list = [];
+        var _groupedList = [];
+
+        /** API **/
         this.updataList = updataList;
         this.addLog = addLog;
 
@@ -20,15 +24,16 @@ angular.module('Logs',[])
             }
         });
 
-        var _list = [];
-        var _groupedList = [];
+
 
         function addLog(logText){
             return $http.post('///log',{
                 text:logText
-            }).then(function (res) {
-                return _list.push(res.data),  res.data;
-            }).then(regrouped)
+            })
+            .then(function (res) {
+                return _list.push(res.data),  _list;
+            })
+            .then(regrouped)
             .then(addGroupOfThatDay)
         }
 

@@ -38,7 +38,7 @@ module.exports = function init ( db ){
                 create:{
                     $gt: fromDay
                 },
-                userId:userId*1
+                userId:userId
             }
         },/*{
             $group:{

@@ -9,13 +9,11 @@ angular.extend(angular.module('mainPage.js',['facebook']),{
             'top':{
                 templateUrl:'page/main/topbar.html',
                 controller:function($scope, $rootScope, Facebook, Authenticate){
-                    Authenticate.then(function () {
-                        Facebook.api('/me',angular.noop).then(function(user) {
+                    Facebook.userApi('/me').then(function(user) {
                             $rootScope.user = user;
                             console.log(user);
-                        }, function (e) {
-                            console.error(e);
-                        });
+                    }, function (e) {
+                        console.error(e);
                     });
 
                 }

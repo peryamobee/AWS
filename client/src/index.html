@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app="Main">
+<html  ng-app="App">
 <head lang="en">
     <meta charset="UTF-8">
     <title>My Log AWS App</title>
@@ -7,7 +7,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="page/main/main.css">
+    <link rel="stylesheet" href="page/main/content.css">
     <link rel="stylesheet" href="page/main/topbar.css">
     <!-- endinject -->
     <!--favicon-->
@@ -25,12 +25,13 @@
 <script src="../bower_components/angular-facebook/lib/angular-facebook.js"></script>
 <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="../bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
-<script src="page/main/mainPage.js"></script>
-<script src="page/root.js"></script>
+<script src="page/main/mainState.js"></script>
+<script src="page/appRootState.js"></script>
 <script src="data/User.js"></script>
 <script src="data/Logs.js"></script>
 <script src="common/Facebook.js"></script>
-<script src="index.js"></script>
+<script src="common/Authenticate.js"></script>
+<script src="appConfig.js"></script>
 <!-- endinject -->
 </body>
 </html>

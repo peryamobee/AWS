@@ -9,17 +9,11 @@ angular.extend(angular.module('mainPage.js',['facebook']),{
             'top':{
                 templateUrl:'page/main/topbar.html',
                 controller:function($scope, $rootScope, User){
-                    //Facebook.userApi('/me').then(function(user) {
-                            $rootScope.user = User;
-                            //console.log(user);
-                    //}, function (e) {
-                    //    console.error(e);
-                    //});
-
+                    $rootScope.user = User;
                 }
             },
             'main': {
-                templateUrl:'page/main/main.html',
+                templateUrl:'page/main/content.html',
                 controller:function($scope, Log, Facebook ){
                     $scope.Log =  Log;
 

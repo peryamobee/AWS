@@ -1,7 +1,7 @@
 /**
  * Created by pery on 31/05/2015.
  */
-angular.module('root.js',['mainPage.js'])
+angular.module('appRootState',[])
     .config(function (stateHelperProvider,$urlRouterProvider, $stateProvider,$locationProvider ) {
         stateHelperProvider
             .state({
@@ -16,24 +16,12 @@ angular.module('root.js',['mainPage.js'])
             })
     })
     .controller('mainController',function($scope,$rootScope,Log,$parse,Facebook, Authenticate, $injector){
-
-        Authenticate.then(function () {
-
-            $scope.login = function() {
-                // From now on you can use the Facebook service just as Facebook api says
-                Facebook.login(function(response) {
-                    console.log(response);
-                    $state.go('root.main');
-                });
-            };
-
-            //Facebook.api('/me', function(user) {
-            //    $rootScope.user = user;
-            //    console.log(user);
-            //    Log.updataList(daysBack,user.id);
-            //});
-
-
-        });
+        $scope.login = function() {
+            // From now on you can use the Facebook service just as Facebook api says
+            Facebook.login(function(response) {
+                console.log(response);
+                $state.go('root.main');
+            });
+        };
     });
 

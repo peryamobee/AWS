@@ -21,6 +21,7 @@ module.exports = function init ( db ){
         logDocument.create =  new Date(Date.now());
         //logDocument.text
         //logDocument.hashTag
+        logDocument.userId = req.headers.authentication;
         logCollection.save(logDocument,{w:1}, function (err, record) {
             res.send(record.ops[0]);
         });
@@ -30,7 +31,7 @@ module.exports = function init ( db ){
         var fromDay = moment()
                 .subtract(req.query.lastDays||1,'day')
                 .startOf('day').toDate();
-        var userId = req.params.id;
+        var userId = req.headers.authentication;
         logCollection.aggregate([
            {
             $match:{
@@ -39,7 +40,7 @@ module.exports = function init ( db ){
                 },
                 userId:userId*1
             }
-        },{
+        },/*{
             $group:{
                 _id: {
                     month:{$month:'$create'},
@@ -52,11 +53,9 @@ module.exports = function init ( db ){
                 }
 
             }
-        },{
+        },*/{
             $sort:{
-                '_id.month':1,
-                '_id.day':1,
-                '_id.year':1
+                'create':1
             }
         }], function (err, result) {
             if(err){throw err;}

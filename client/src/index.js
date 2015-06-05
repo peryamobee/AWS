@@ -15,20 +15,22 @@ angular.module('Main',[
             $locationProvider.html5Mode(true);
     })
     .config(function ($httpProvider) {
-        $httpProvider.interceptors.push('theRightServer');
-    })
-    .factory('theRightServer',function () {
         var server = '//localhost:8081/';
         //var server = 'http://54.186.42.197:8081/';
-
-        return {
-            'request': function(config) {
-                config.url = config.url.replace(/^\/\/\//,server);
-                return config;
-            }
-        };
+        $httpProvider.interceptors.push(function (Authenticate) {
+            return {
+                'request': function(config) {
+                    config.url = config.url.replace(/^\/\/\//,server);
+                    return Authenticate.then(function (auth) {
+                        config.headers.Authentication = auth.authResponse.userID;
+                        config.headers.FBToken = auth.authResponse.accessToken;
+                        return config;
+                    });
+                }
+            };
+        });
     })
-    .service('authenticate',function authenticate($rootScope, Facebook) {
+    .service('Authenticate',function authenticate($rootScope, Facebook) {
         return Facebook.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 $rootScope.loggedIn = true;

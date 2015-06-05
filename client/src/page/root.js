@@ -15,9 +15,9 @@ angular.module('root.js',['mainPage.js'])
                 ]
             })
     })
-    .controller('mainController',function($scope,$rootScope,Log,$parse,Facebook, authenticate, $injector){
-        var daysBack = 30;
-        authenticate.then(function () {
+    .controller('mainController',function($scope,$rootScope,Log,$parse,Facebook, Authenticate, $injector){
+
+        Authenticate.then(function () {
 
             $scope.login = function() {
                 // From now on you can use the Facebook service just as Facebook api says
@@ -27,18 +27,13 @@ angular.module('root.js',['mainPage.js'])
                 });
             };
 
-            Facebook.api('/me', function(user) {
-                $rootScope.user = user;
-                console.log(user);
-                Log.updataList(daysBack,user.id);
-            });
+            //Facebook.api('/me', function(user) {
+            //    $rootScope.user = user;
+            //    console.log(user);
+            //    Log.updataList(daysBack,user.id);
+            //});
 
-            $scope.Log =  Log;
 
-            $scope.addLog = function(){
-                Log.addLog($scope.model.log);
-                $scope.model.log = '';
-            };
         });
     });
 

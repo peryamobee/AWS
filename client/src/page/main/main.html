@@ -1,15 +1,21 @@
 <div class="main-content">
 
 
-    <div class="day" ng-repeat="day in Log.list">
-        <div  class="day-title" >
-            {{day._id.day}}/{{day._id.month}}
+    <div ng-repeat="(titleYear,days) in Log.groupedList">
+        <div class="year-title">
+            {{titleYear}}
         </div>
-        <div class="record" ng-repeat="record in day.records" >
-            <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
-            <div class="record-text" ng-bind="record.text"></div>
+        <div class="day" ng-repeat="(titleDay,day) in days">
+            <div  class="day-title" >
+                {{titleDay}}
+            </div>
+            <div class="record" ng-repeat="record in day" >
+                <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
+                <div class="record-text" ng-bind="record.text"></div>
+            </div>
         </div>
     </div>
+
 
     <form ng-submit="addLog(model.log)">
         <div class="record" >

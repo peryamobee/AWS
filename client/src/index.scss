@@ -1,0 +1,16 @@
+body {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKklEQVQIW2Ncs2bN/y9fvjDw8PAwwGjGBQsW/P/z5w8DCwsLA4xmpEwlAK+ALM1vVcnuAAAAAElFTkSuQmCC);
+  padding: 1rem;
+  direction: rtl;
+  box-sizing: border-box;
+  /* css3 rec */
+  -moz-box-sizing: border-box;
+  /* ff2 */
+  -ms-box-sizing: border-box;
+  /* ie8 */
+  -webkit-box-sizing: border-box;
+  /* safari3 */
+  -khtml-box-sizing: border-box;
+  /* konqueror */
+  margin-top: 3rem;
+}

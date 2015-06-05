@@ -17,7 +17,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*'); // * => allow all origins
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,OPTIONS,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Accept'); // add remove headers according to your needs
+    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Accept,Authentication,FBToken'); // add remove headers according to your needs
     next()
 });
 app.all('/ping', function (req, res) {
@@ -31,7 +31,7 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     }
     var logService = new (require('./src/Logs.Node.Module'))(db ,app);
     /*route*/
-    app.get('/log/:id', logService.getLogs);
+    app.get('/log', logService.getLogs);
     app.post('/log', logService.saveLog);
 
     //var userService = new (require('./src/User.Node.Module'))(db);

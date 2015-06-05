@@ -8,13 +8,13 @@ angular.extend(angular.module('mainPage.js',['facebook']),{
         views:{
             'top':{
                 templateUrl:'page/main/topbar.html',
-                controller:function($scope, $rootScope, Facebook, Authenticate){
-                    Facebook.userApi('/me').then(function(user) {
-                            $rootScope.user = user;
-                            console.log(user);
-                    }, function (e) {
-                        console.error(e);
-                    });
+                controller:function($scope, $rootScope, User){
+                    //Facebook.userApi('/me').then(function(user) {
+                            $rootScope.user = User;
+                            //console.log(user);
+                    //}, function (e) {
+                    //    console.error(e);
+                    //});
 
                 }
             },

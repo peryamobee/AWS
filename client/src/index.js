@@ -8,6 +8,7 @@ angular.module('Main',[
     ,'ui.router.stateHelper'
     ,'root.js'
     ,'customFacebook'
+    ,'User'
 ])
     .config(function(FacebookProvider) {
         FacebookProvider.init('362389493857685');

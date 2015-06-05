@@ -7,7 +7,7 @@ var http      = require('http'),
     sassMiddleware = require('node-sass-middleware'),
     bodyParser = require('body-parser'),
     express = require('express'),
-    app = express();
+    app = express()
     ;
 //app.configure(function() {
     app.use(express.static(__dirname + '/')); // for parsing application/json
@@ -34,6 +34,7 @@ app.get('/*', function(req, res) {
 var server = app.listen(8080, function () {
     var host = server.address().address;
     var port = server.address().port;
-    console.log('"mongoDB Native app" listening at http://%s:%s', host, port);
+    console.log('"static file server up" listening at http://%s:%s', host, port);
+    console.log('"remmber to run data server');
 
 });

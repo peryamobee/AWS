@@ -19,7 +19,10 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,OPTIONS,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Accept'); // add remove headers according to your needs
     next()
-})
+});
+app.all('/ping', function (req, res) {
+   res.send('data server')
+});
 
 MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
     if(err){
@@ -38,15 +41,15 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
 
     console.log("we are connected to db");
 
+    var server = app.listen(8081, function () {
+        var host = server.address().address;
+        var port = server.address().port;
+        console.log('"mongoDB Native app" listening at http://%s:%s', host, port);
+
+    });
 
 });
 
-var server = app.listen(8081, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('"mongoDB Native app" listening at http://%s:%s', host, port);
-
-});
 
 
 

@@ -14,18 +14,18 @@ var bowerFilesConfig = {
         bowerJson: 'bower.json'
     }
 };
-gulp.task('sass', function () {
-
-    gulp.src(sassFiles)
-        .pipe(plugins.plumber())
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.sass().on('error', plugins.sass.logError ))
-        .pipe(plugins.sourcemaps.write('./maps'))
-        .pipe(plugins.size({showFiles:true}))
-        .pipe(plugins.concat('style.css'))
-        .pipe(plugins.plumber.stop())
-        .pipe(gulp.dest('build/'))
-});
+//gulp.task('sass', function () {
+//
+//    gulp.src(sassFiles)
+//        .pipe(plugins.plumber())
+//        .pipe(plugins.sourcemaps.init())
+//        .pipe(plugins.sass().on('error', plugins.sass.logError ))
+//        .pipe(plugins.sourcemaps.write('./maps'))
+//        .pipe(plugins.size({showFiles:true}))
+//        .pipe(plugins.concat('style.css'))
+//        .pipe(plugins.plumber.stop())
+//        .pipe(gulp.dest('build/'))
+//});
 
 gulp.task('index', function () {
     var  bowerFiles = require('main-bower-files')( bowerFilesConfig );
@@ -82,8 +82,28 @@ gulp.task('watch', function () {
 
 gulp.task('run',plugins.shell.task([
     //'mongod  --dbpath /data/db --logpath log/mongodb.log',
-    'node server/server.js'
+    'node ./staticServer.js'
 ]));
+
+gulp.task('mongod',plugins.shell.task([
+    //'mongod  --dbpath /data/db --logpath log/mongodb.log',
+    'md data/db/test data/log',
+    'mongod  --dbpath data/db --logpath data/log/mongodb.log'
+],{cwd:'..'}));
+
+gulp.task('dataServer',['mongod'],plugins.shell.task([
+    //'mongod  --dbpath /data/db --logpath log/mongodb.log',
+    'node ./server'
+],{cwd:'../sever'}));
+
+gulp.task('url',['run'], function(){
+    var options = {
+        url: 'http://localhost:8080'
+        ,app: 'chrome'
+    };
+    gulp.src('./src/index.html')
+        .pipe(plugins.open('', options));
+});
 
 gulp.task('upload-to-s3',plugins.shell.task([
     'aws s3 cp build s3://log-life-mongo-js --recursive'
@@ -131,11 +151,13 @@ gulp.task('production', function () {
         .pipe(gulp.dest('./build'))
     ;
 
-    gulp.src(['*.png','*.ico'],{cwd:'src/images/**/'})
+    gulp.src(['*.png','*.ico'],{cwd:'src/imagesbp/**/'})
         .pipe(gulp.dest('./build/images'));
 
     gulp.start('upload-to-s3');
 
 });
 
-gulp.task('default',['sass','index','watch']);
+gulp.task('default',['dataServer','index','watch','url']);
+
+gulp.task('env-dev',['mongod','index','watch','url']);

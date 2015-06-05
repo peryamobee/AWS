@@ -1,7 +1,7 @@
 {
   "name": "myAWS",
   "version": "1.0.0",
-  "description": "",
+  "description": "this is the data server help connect mongoDb with the client",
   "main": "mongo.js",
   "dependencies": {
     "body-parser": "^1.12.3",

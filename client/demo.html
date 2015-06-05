@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html,body{
+            margin:0;
+            padding:0;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAALElEQVQIW2NcvnR5/ZNHTxhk5GQYYDRjd3t3PUgABkASjCCVcBEoA7dKdDMBSo4dlN1o2SgAAAAASUVORK5CYII=');
+
+        }
+        p{
+            margin: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 13px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border: 4px solid transparent;
+            background-color: rgba(66,66,66,.9);
+            background-clip: padding-box;
+            border-radius: 18px;
+        }
+
+        .title{
+            height: 2rem;
+            line-height: 2em;
+            background-color: rgba(0,0,0,0.8);
+            color: gray;
+            padding: 0 1rem;
+            font-size: 1.2em;
+            margin-bottom: 0.4rem;
+        }
+        .title .menu-icon{
+            float: left;
+            margin-right: 0.4rem;
+            height: 100%;
+            background: none;
+            border: none;
+            outline: none;
+
+            display: none;
+        }
+        .title .menu-icon:active{
+
+        }
+        .side-menu{
+            float: left;
+            width: 200px;
+            background-color: rgba(0,0,0,0.8);
+            color: gray;
+            border-radius: 0 0.3rem 0.3rem 0;
+            min-height: 20rem;
+            padding: 1rem 0.6rem;
+        }
+        .side-menu .menu-option{
+            height: 2em;
+            line-height: 2em;
+            text-align: left;
+            padding: 0 0.6em;
+            font-family: monospace;
+            font-size: 1.2rem;
+            border-bottom: 1px solid gray;
+
+
+        }
+        .side-menu .menu-option:hover{
+            background-color:darkgray;
+            color: white;
+        }
+
+        .container{
+            overflow: hidden;
+            padding: 0 0.4rem;
+        }
+        .container .panel {
+            min-height: 10rem;
+            background-color: rgba(30,30,30,1);
+            overflow: hidden;
+            margin-bottom: 0.4rem;
+            border-radius: 0.3em;
+            color: rgb(147, 147, 147);
+            padding: 1rem;
+        }
+        .panel .image{
+            width: 5rem;
+            height: 5rem;
+            background-color: cadetblue;
+            float: left;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+        /*for a little screen*/
+        @media screen and (max-width: 15cm) {
+            body {
+                background-color: lightblue;
+            }
+
+            .title{
+                padding-left: 0;
+            }
+            .title .menu-icon{
+                display: inline-block;
+            }
+
+            .side-menu{
+                margin-left: -200px;
+                position: fixed;
+                top: 2rem;
+                bottom:0;
+                border-radius: 0;
+            }
+            .show-menu .side-menu{
+                transition: margin-left 0.1s ;
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+<body class="show-menu">
+ <div class="title">
+     <button class="menu-icon" ><img src="menu.svg" alt=""/></button>
+    some title text
+ </div>
+ <div class="side-menu">
+    <div class="menu-option"> option 1</div>
+    <div class="menu-option"> option 2</div>
+    <div class="menu-option"> option 3</div>
+ </div>
+ <div class="container">
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>some text, some text, some text</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+
+     <div class="panel">
+         <div class="image"><img src="" alt=""/></div>
+         <p>Build the next breakthrough app on the world's largest IT platform! Spiceworks is putting $65,000 in prizes up for grabs. You could win best app in four categories: inventory, help desk, fan favorite and top all-around. Winning apps will be featured exclusively in the Spiceworks App Center.
+             We've created a special frame template so that building an app in Spiceworks is as easy possible. See complete contest details. You can also check out app examples in the Spiceworks Community.</p>
+         <p>I got to watch David DeSandro give this talk live at Code Genius last month, and thankfully it's online now. In five minutes, he shows how easily physics can be implemented in JavaScript in terms of moving things around in a natural feeling way. It's essentially what is behind David's Flickity library that he introduced here a few months ago.</p>
+     </div>
+ </div>
+</body>
+</html>

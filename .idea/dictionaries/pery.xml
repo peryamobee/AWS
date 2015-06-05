@@ -2,6 +2,7 @@
   <dictionary name="pery">
     <words>
       <w>mongo</w>
+      <w>mongod</w>
       <w>yyyy</w>
     </words>
   </dictionary>

@@ -1,3 +1,3 @@
 cd client
-gulp env-dev
+call gulp dev
 cd..

@@ -4,3 +4,4 @@ cd ../client
 call npm install
 call bower install
 cd..
+call run

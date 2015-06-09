@@ -27,7 +27,7 @@ module.exports = function init ( db ){
         });
     }
 
-    function getHashTag (req,res){
+    function getHashTag (req, res){
 
     }
 

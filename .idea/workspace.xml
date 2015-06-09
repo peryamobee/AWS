@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2222447c-c140-4be2-bd56-4748000ee3db" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/page/main/content.html" afterPath="$PROJECT_DIR$/client/src/page/main/content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/page/main/topbar.html" afterPath="$PROJECT_DIR$/client/src/page/main/topbar.html" />
+      <change type="MOVED" beforePath="C:\CODE\MY\AWS\client\src\page\main\content.html" afterPath="$PROJECT_DIR$/client/src/page/main/dashboard.html" />
+      <change type="MOVED" beforePath="C:\CODE\MY\AWS\client\src\page\main\content.scss" afterPath="$PROJECT_DIR$/client/src/page/main/dashboard.scss" />
+      <change type="MOVED" beforePath="C:\CODE\MY\AWS\client\src\page\main\mainState.js" afterPath="$PROJECT_DIR$/client/src/page/main/main.route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/index.html" afterPath="$PROJECT_DIR$/client/src/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AWS.iws" />
@@ -65,20 +67,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/page/main/content.html">
+      <file leaf-file-name="main.route.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/page/main/main.route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.7983425">
+              <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topbar.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topbar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12177651">
+            <state vertical-scroll-proportion="-3.2692308">
               <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
               <folding />
             </state>
@@ -109,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/template.html" />
         <option value="$PROJECT_DIR$/client/template/favicon.html" />
         <option value="$PROJECT_DIR$/client/Logs.srv.js" />
         <option value="$PROJECT_DIR$/client/npm-debug.log" />
@@ -160,6 +161,7 @@
         <option value="$PROJECT_DIR$/snippets/demo.html" />
         <option value="$PROJECT_DIR$/client/src/page/main/content.html" />
         <option value="$PROJECT_DIR$/client/src/page/main/topbar.html" />
+        <option value="$PROJECT_DIR$/client/src/page/main/mainState.js" />
       </list>
     </option>
   </component>
@@ -859,7 +861,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433871139940</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="tab index">
+      <created>1433871272687</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1433871272687</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -932,7 +940,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add gulp tasks:&#10;sass&#10;angular-inject&#10;index-inject" />
     <MESSAGE value="add gulp tasks:&#10;add watch for inject&#10;add watch for sass&#10;" />
     <MESSAGE value="add gulp tasks:&#10;make watch for inject more Effective" />
     <MESSAGE value="add gulp-plumber to sass task&#10;&#10;" />
@@ -957,7 +964,8 @@
     <MESSAGE value="fix run script" />
     <MESSAGE value="add little notification on mongod server up" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="tab index" />
+    <option name="LAST_COMMIT_MESSAGE" value="tab index" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1287,6 +1295,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/page/main/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38968483">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
@@ -1295,18 +1319,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/page/main/content.html">
+    <entry file="file://$PROJECT_DIR$/client/src/page/main/main.route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/page/main/topbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12177651">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.7983425">
+          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
           <folding />
         </state>
       </provider>

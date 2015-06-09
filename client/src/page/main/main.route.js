@@ -13,7 +13,7 @@ angular.extend(angular.module('mainPage.js',['facebook']),{
                 }
             },
             'main': {
-                templateUrl:'page/main/content.html',
+                templateUrl:'page/main/dashboard.html',
                 controller:function($scope, Log, Facebook ){
                     $scope.Log =  Log;
 

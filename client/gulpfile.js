@@ -88,7 +88,8 @@ gulp.task('run',plugins.shell.task([
 gulp.task('mongod',plugins.shell.task([
     //'mongod  --dbpath /data/db --logpath log/mongodb.log',
     'md data\\db\\test data\\log',
-    'mongod  --dbpath data\\db --logpath data\\log\\mongodb.log'
+    'mongod  --dbpath data\\db --logpath data\\log\\mongodb.log',
+    'echo mongod server is up'
 ],{cwd:'..',ignoreErrors:true}));
 
 gulp.task('dataServer',['mongod'],plugins.shell.task([

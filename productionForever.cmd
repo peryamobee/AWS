@@ -3,4 +3,4 @@
 #    -o ./system/log/out.log
 #    -e ./system/log/forever-error.log
 #    forever stop my-daemon.js
-forever ./server/mongoNative.js
+forever ./server/server.js

@@ -10,6 +10,7 @@
                 {{titleDay}}
             </div>
             <div class="record" ng-repeat="record in day" >
+                <div class="side-note"></div>
                 <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
                 <div class="record-text" ng-bind="record.text"></div>
             </div>

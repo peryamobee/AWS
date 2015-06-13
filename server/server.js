@@ -29,11 +29,8 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
         console.log(err);
         return;
     }
-    var logService = new (require('./src/Logs.Node.Module'))(db ,app);
-    /*route*/
-    app.get('/log', logService.getLogs);
-    app.post('/log', logService.saveLog);
-
+    /** LOGS SERVICE **/
+   require('./src/Logs.Node.Module')(db ,app);
     //var userService = new (require('./src/User.Node.Module'))(db);
     //app.get('/hash',userService.getHashTag);
     //app.post('/hash',userService.addHashTag);

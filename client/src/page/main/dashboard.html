@@ -1,7 +1,7 @@
 <div class="main-content">
 
 
-    <div ng-repeat="(titleYear,days) in Log.groupedList">
+    <div class="stream main-stream" ng-repeat="(titleYear,days) in Log.groupedList">
         <div class="year-title">
             {{titleYear}}
         </div>
@@ -9,29 +9,34 @@
             <div  class="day-title" >
                 {{titleDay}}
             </div>
+            <!--every line start here-->
             <div class="record" ng-repeat="record in day" >
-                <div class="side-note"></div>
+                <div class="side-note" >
+                    <span ng-repeat="tag in record.tags track by $index" ng-bind="tag"></span>
+                </div>
                 <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
                 <div class="record-text" ng-bind="record.text"></div>
             </div>
         </div>
-    </div>
-
-
-    <form ng-submit="addLog(model.log)">
-        <div class="record" >
-            <div class="log-input">
-                <input
-                        type="text"
-                        tabindex="0"
-                        autofocus="autofocus"
-                        ng-model="model.log"/>
+        <form ng-submit="addLog(model.log)">
+            <div class="record" >
+                <div class="log-input">
+                    <input
+                            type="text"
+                            tabindex="0"
+                            autofocus="autofocus"
+                            ng-model="model.log"/>
+                </div>
             </div>
+        </form>
+    </div>
+    <div class="stream" ng-repeat="list in streams">
+        <div  class="list-title"  ng-bind="list.name"></div>
+        <div class="record" ng-repeat="record in list.records">
+            <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
+            <div class="record-text" ng-bind="record.text"></div>
         </div>
-    </form>
 
-    <span ng-bind="status"></span>
-
-    <br/>
+    </div>
 
 </div>

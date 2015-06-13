@@ -23,6 +23,13 @@ angular.extend(angular.module('mainPage.js',['facebook']),{
                     };
 
 
+                    $scope.streams = [{
+                        name:'ארועים',
+                        records:[{
+                            create:moment(),
+                            text: 'לתונה'
+                        }]
+                    }];
 
                     var daysBack = 30;
                     Log.updataList(daysBack);

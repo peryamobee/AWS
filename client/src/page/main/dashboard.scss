@@ -1,18 +1,35 @@
+@import "src/styleGuid";
+
+/*streams*/
+
+.main-content{
+  display: flex;
+
+  .stream{
+    flex: 1;
+    align-items: stretch;
+    margin: 0 0.5em;
+    background-color: hsla(53, 71%, 80%, 0.01);
+    border-radius: 1em;
+    padding: 0.5em;
+  }
+
+}
+/*lists / stream*/
+.list-title{
+  @extend .main-title;
+}
+
+
 .year-title{
   float: left;
 }
 
 .day .day-title,
 .year-title{
-  /*color: #a0a0a0;*/
-  /*color: #acacac;*/
-  display: inline-block;
-  color: #959595;
-  font-size: 30px;
-  border-bottom: 1px solid #7d7d7d;
-  margin: 10px 0px;
-  padding: 0 10px; }
-
+  @extend .main-title;
+}
+/*records*/
 .record {
   color: #000;
   overflow: hidden;
@@ -35,15 +52,14 @@
   }
 }
 
-
-
 .log-input {
   display: block;
   border: none;
   background: rgba(255, 255, 255, 0.1);
   color: #373737;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+}
   .log-input input {
     width: 100%;
     background: transparent;
@@ -51,9 +67,14 @@
     outline: 1px solid #ccc; }
 
 .text-log {
-  color: #373737; }
+  color: #373737;
+}
 
 .log-input:focus {
-  outline: none; }
+  outline: none;
+}
+
+
+
 
 /*# sourceMappingURL=maps/index.css.map */

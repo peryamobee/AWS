@@ -23,11 +23,10 @@ angular.module('Logs',[])
                 }
             }
         });
-
-
-
         function addLog(logText){
-            return $http.post('///log',{
+            var URL = '///log';
+
+            return $http.post(URL,{
                 text:logText
             })
             .then(function (res) {
@@ -38,8 +37,10 @@ angular.module('Logs',[])
         }
 
         function updataList(lastDays){
+            //var URL = '///log';
+            var URL = '/test/mock/logs.json';
             return $http
-                .get('///log',{
+                .get(URL,{
                     params:{
                         lastDays:lastDays
                     }

@@ -26,7 +26,7 @@ var http      = require('http'),
 
 // Routes
 app.get('/*', function(req, res) {
-    var resolvedPath = path.resolve(__dirname + '/src/index.html');
+    var resolvedPath = path.resolve( __dirname + '/src/index.html' );
     console.log('send file:', resolvedPath );
     res.sendFile( resolvedPath  )
 });

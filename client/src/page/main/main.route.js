@@ -1,7 +1,7 @@
 /**
  * Created by pery on 31/05/2015.
  */
-angular.extend(angular.module('mainPage.js',['facebook']),{
+angular.extend(angular.module('main.page.js',['facebook']),{
     page: {
         name:'main',
         url:'',

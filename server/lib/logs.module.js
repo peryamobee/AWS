@@ -1,14 +1,14 @@
 /**
  * Created by pery on 08/05/2015.
  */
-var logCollection = null;
+var collection = null;
 var moment = require('moment');
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function init ( db, router ){
 
     /** init **/
-    logCollection = db.collection('logs',function(err){
+    collection = db.collection('logs',function(err){
         if(err) throw err;
         console.log("logs collection arrive");
     });
@@ -42,7 +42,7 @@ module.exports = function init ( db, router ){
         //logDocument.text
         //logDocument.hashTags
         logDocument.userId = req.headers.authentication;
-        logCollection.save(logDocument,{w:1}, function (err, record) {
+        collection.save(logDocument,{w:1}, function (err, record) {
             res.send(record.ops[0]);
         });
     }
@@ -77,7 +77,7 @@ module.exports = function init ( db, router ){
         //pipe.push(grouped);
         pipe.push(sort);
 
-        logCollection.aggregate(pipe, cb)
+        collection.aggregate(pipe, cb)
     }
 
 

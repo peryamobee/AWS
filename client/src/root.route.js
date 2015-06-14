@@ -11,7 +11,8 @@ angular.module('appRootState',[])
                 controller:'mainController',
                 abstract:true,
                 children:[
-                    angular.module('mainPage.js').page
+                    angular.module('main.page.js').page,
+                    angular.module('dictionary.page.js').page
                 ]
             })
     })

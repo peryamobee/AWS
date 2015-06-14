@@ -1,7 +1,7 @@
 /**
  * Created by pery on 13/06/2015.
  */
-var logCollection = null;
+var collection = null;
 var moment = require('moment');
 var ObjectID = require('mongodb').ObjectID;
 
@@ -13,7 +13,16 @@ module.exports = function init(db, router) {
         console.log("tag dictionary collection arrive");
     });
 
-    router.get('/tag.dictionary', function (req, res) {
+    /**
+     * the layout of the documnt in tag.dictionary is
+     * {
+     *  en:'word',
+     *  he:'word',
+     *  fr:'word',
+     *  }
+     **/
+
+    router.get('/dictionary', function (req, res) {
         var foreignLanguageTags = req.query.tags,
             lang = req.query.lang
         ;
@@ -25,8 +34,8 @@ module.exports = function init(db, router) {
         })
     });
 
-    router.post('/tag.dictionary', function (req, res) {
-        var wordTranslation = req.body.wordTranslation;
+    router.post('/dictionary', function (req, res) {
+        var wordTranslation = req.body;
         wordTranslation._id = wordTranslation.en;
         collection.save(wordTranslation,{w:1}, function (err, record) {
             res.send(record.ops[0]);

@@ -6,7 +6,8 @@ angular.module('dictionary',[])
     /*API*/
     return {
         get:get,
-        add:add
+        add:add,
+        save:save
     };
 
     function get(){
@@ -20,6 +21,10 @@ angular.module('dictionary',[])
     }
     function add(word){
         return $http.put('///dictionary',word)
+    }
+
+    function save(words){
+        return $http.post('///dictionary',words)
     }
 })
 ;

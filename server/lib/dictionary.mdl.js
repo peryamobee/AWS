@@ -35,17 +35,28 @@ module.exports = function init(db, router) {
             pipe.push({$match: match});
         }
 
-
         collection.aggregate(pipe, function (err, result) {
             if(err){throw err;}
             res.send(result);
         })
     });
 
-    router.post('/dictionary', function (req, res) {
+    router.put('/dictionary', function (req, res) {
         var wordTranslation = req.body;
         wordTranslation._id = wordTranslation.en;
         collection.save(wordTranslation,{w:1}, function (err, record) {
+            if(err){throw err;}
+            res.send(record.ops[0]);
+        });
+    });
+    router.post('/dictionary', function (req, res) {
+        var words= req.body;
+        _.forEach(words, function (word, i) {
+            word._id = word._id ||word.en;
+        });
+
+        collection.save(words,{w:1,upsert:1,multi:1}, function (err, record) {
+            if(err){throw err;}
             res.send(record.ops[0]);
         });
     });

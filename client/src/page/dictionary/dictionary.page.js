@@ -10,7 +10,31 @@ angular.extend(angular.module('dictionary.page.js',[]),{
             $scope.dictionary = Dictionary;
             Dictionary.get().then(function (res) {
                 $scope.words = res.data;
-            })
+                $scope.words.push({})
+            });
+
+            $scope.shakeWordList = shakeWordList;
+            $scope.save = save;
+
+            function save(){
+                _.remove($scope.words,function (word,i) {
+                    return  (word.he == '') || (word.en == '') ;
+                });
+
+                Dictionary.save($scope.words).then(function (words) {
+                    $scope.words = words;
+                })
+            }
+
+            function shakeWordList(){
+                _.remove($scope.words,function (word,i) {
+                        return _.isEmpty(word);
+                    });
+                $scope.words.push({});
+
+
+
+            }
 
 
         }

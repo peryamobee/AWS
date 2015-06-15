@@ -5,11 +5,11 @@
             <th>en</th>
             <th>he</th>
         </tr></thead>
-        <tr ng-repeat="word in words">
-            <td><input ng-model="word.en"/></td>
-            <td><input ng-model="word.he"/></td>
+        <tr ng-repeat="word in words track by $index">
+            <td class="en"><input ng-model="word.en" ng-change="shakeWordList()"/></td>
+            <td class="he"><input ng-model="word.he" ng-change="shakeWordList()"/></td>
         </tr>
     </table>
-    <button>save</button>
+    <button ng-click="save()">save</button>
 </div>
 

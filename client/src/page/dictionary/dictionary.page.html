@@ -6,8 +6,8 @@
             <th>he</th>
         </tr></thead>
         <tr ng-repeat="word in words track by $index">
-            <td class="en"><input ng-model="word.en" ng-change="shakeWordList()"/></td>
-            <td class="he"><input ng-model="word.he" ng-change="shakeWordList()"/></td>
+            <td class="en"><input ng-model="word.en" ng-change="shakeWordList();save(word)"/></td>
+            <td class="he"><input ng-model="word.he" ng-change="shakeWordList();save(word)"/></td>
         </tr>
     </table>
     <button ng-click="save()">save</button>

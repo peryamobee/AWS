@@ -14,16 +14,16 @@ angular.extend(angular.module('dictionary.page.js',[]),{
             });
 
             $scope.shakeWordList = shakeWordList;
-            $scope.save = save;
+            $scope.save = _.debounce(save,150,{trailing:true});
 
-            function save(){
-                _.remove($scope.words,function (word,i) {
-                    return  (word.he == '') || (word.en == '') ;
-                });
-
-                Dictionary.save($scope.words).then(function (words) {
+            function save(word,i){
+                if((word.en == '') || (word.he == '')){
+                  return;
+                }
+                Dictionary.save(word).then(function (words) {
                     $scope.words = words;
                 })
+
             }
 
             function shakeWordList(){

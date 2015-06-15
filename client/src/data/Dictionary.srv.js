@@ -14,7 +14,7 @@ angular.module('dictionary',[])
         return $http.get('///dictionary',{
             params:{
                 size:100,
-                words:['card','event'],
+                words:[],
                 lang:'en'
             }
         })

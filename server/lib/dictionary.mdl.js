@@ -36,8 +36,8 @@ module.exports = function init(db, router) {
         }
 
         collection.aggregate(pipe, function (err, result) {
-            if(err){throw err;}
-            res.send(result);
+            if(err){ res.send(err); }
+            else{ res.send(result);}
         })
     });
 
@@ -49,15 +49,16 @@ module.exports = function init(db, router) {
             res.send(record.ops[0]);
         });
     });
-    router.post('/dictionary', function (req, res) {
-        var words= req.body;
-        _.forEach(words, function (word, i) {
-            word._id = word._id ||word.en;
-        });
 
-        collection.save(words,{w:1,upsert:1,multi:1}, function (err, record) {
-            if(err){throw err;}
-            res.send(record.ops[0]);
+    router.post('/dictionary', function (req, res) {
+        var word= req.body
+            ;
+        word._id = word._id ||word.en;
+
+        collection.save(word,{w:1}, function (err, record) {
+            if(err){res.send(err);}
+            else{   res.send(word);}
+
         });
     });
 

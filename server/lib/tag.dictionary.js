@@ -4,13 +4,14 @@
 var collection = null;
 var moment = require('moment');
 var ObjectID = require('mongodb').ObjectID;
+var _ = require('lodash');
 
 module.exports = function init(db, router) {
 
     /** init **/
     var collection = db.collection('tagDictionary',function(err){
         if(err) throw err;
-        console.log("tag dictionary collection arrive");
+        console.log("dictionary collection arrive");
     });
 
     /**
@@ -23,12 +24,19 @@ module.exports = function init(db, router) {
      **/
 
     router.get('/dictionary', function (req, res) {
-        var foreignLanguageTags = req.query.tags,
-            lang = req.query.lang
+        var words = req.query.words,
+            lang = req.query.lang,
+            size = req.query.size,
+            pipe = []
         ;
-        var q = {};
-        q[lang] = {$in:foreignLanguageTags};
-        collection.find(q, function (err, result) {
+        if(!_.isEmpty(words) ){
+            var match = {} ;
+            match[lang] = {$in: _.isArray(words)? words:[words]};
+            pipe.push({$match: match});
+        }
+
+
+        collection.aggregate(pipe, function (err, result) {
             if(err){throw err;}
             res.send(result);
         })

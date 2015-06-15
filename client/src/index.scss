@@ -1,7 +1,13 @@
+head[lang=en] ~ body{
+  direction: ltr;
+}
+head[lang=he] ~ body{
+  direction: rtl;
+}
 body {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKklEQVQIW2Ncs2bN/y9fvjDw8PAwwGjGBQsW/P/z5w8DCwsLA4xmpEwlAK+ALM1vVcnuAAAAAElFTkSuQmCC);
   padding: 1rem;
-  direction: rtl;
+
   box-sizing: border-box;
   /* css3 rec */
   -moz-box-sizing: border-box;
@@ -13,4 +19,8 @@ body {
   -khtml-box-sizing: border-box;
   /* konqueror */
   margin-top: 3rem;
+}
+
+body * {
+  box-sizing: border-box;
 }

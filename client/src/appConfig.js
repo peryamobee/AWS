@@ -27,15 +27,6 @@ angular.module('App',[
                 'request': function(config) {
                     if(config.url.match(regCheck)){
                         config.url = config.url.replace(regCheck,server);
-                        return Authenticate.then(function (auth) {
-                            if(!auth.authResponse){
-                                console.error('requst for data before authentication');
-                                return $q.reject();
-                            }
-                            config.headers.Authentication = auth.authResponse.userID;
-                            config.headers.FBToken = auth.authResponse.accessToken;
-                            return config;
-                        });
                     }
                     return config;
 

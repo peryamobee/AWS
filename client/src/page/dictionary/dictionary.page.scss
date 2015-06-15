@@ -1,0 +1,15 @@
+.dictionary{
+
+   h1{
+     @extend .main-title;
+   }
+
+  .table-dictionary{
+    min-width: 24em;
+    input{
+      width: 100%;
+      line-height: 1.1rem;
+
+    }
+  }
+}

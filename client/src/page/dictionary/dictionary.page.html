@@ -1,11 +1,15 @@
-<h1>Dictionary</h1>
-<table>
-    <header>
-        <td>en</td>
-        <td>he</td>
-    </header>
-    <tr ng-repeat="word in words">
-        <td><input ng-model="word.en"/></td>
-        <td><input ng-model="word.he"/></td>
-    </tr>
-</table>
+<div class="dictionary">
+    <h1>Dictionary</h1>
+    <table class="table-dictionary">
+        <thead><tr>
+            <th>en</th>
+            <th>he</th>
+        </tr></thead>
+        <tr ng-repeat="word in words">
+            <td><input ng-model="word.en"/></td>
+            <td><input ng-model="word.he"/></td>
+        </tr>
+    </table>
+    <button>save</button>
+</div>
+

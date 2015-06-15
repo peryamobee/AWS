@@ -10,6 +10,7 @@ angular.module('App',[
     ,'User'
     ,'Authenticate'
     ,'appRootState'
+    ,'dictionary'
 ])
     .config(function(FacebookProvider) {
         FacebookProvider.init('362389493857685');

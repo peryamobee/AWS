@@ -6,8 +6,8 @@ angular.module('appRootState',[])
         stateHelperProvider
             .state({
                 name:'root',
-                url:'/',
-                template:'<ui-view name="top"></ui-view> <ui-view name="main" ></ui-view>',
+                url:'',
+                templateUrl:'page/frame/frame.html',
                 controller:'mainController',
                 abstract:true,
                 children:[

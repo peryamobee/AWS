@@ -4,8 +4,8 @@
 angular.extend(angular.module('dictionary.page.js',[]),{
     page: {
         name:'dictionary',
-        url:'dictionary',
-        templateUrl:'page/dictionary.page.html',
+        url:'/dictionary',
+        templateUrl:'page/dictionary/dictionary.page.html',
         controller:function($scope, Dictionary){
             $scope.dictionary = Dictionary;
             Dictionary.get().then(function (res) {
@@ -14,5 +14,11 @@ angular.extend(angular.module('dictionary.page.js',[]),{
 
 
         }
+        //views:{
+        //    main:{
+        //
+        //    }
+        //}
+
     }
 });

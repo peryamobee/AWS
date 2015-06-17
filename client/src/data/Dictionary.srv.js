@@ -2,7 +2,7 @@
  * Created by pery on 14/06/2015.
  */
 angular.module('dictionary',[])
-.service('Dictionary', function ($http) {
+.service('Dictionary', function ($http, $q) {
     /*API*/
     return {
         get:get,
@@ -23,8 +23,20 @@ angular.module('dictionary',[])
         return $http.put('///dictionary',word)
     }
 
-    function save(words){
-        return $http.post('///dictionary',words)
+    function save(word){
+        _.defaults(word,{en:'',he:''});
+        if(validation(word)){
+            return $http.post('///dictionary',word).then(function (res) {
+                return res.data;
+            })
+        }else{
+            return  $q.reject('word not valid');
+        }
+
+    }
+
+    function validation(word){
+        return !(_.isEmpty(word) || _.some(word, _.isEmpty));
     }
 })
 ;

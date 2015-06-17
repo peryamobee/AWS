@@ -43,7 +43,7 @@ module.exports = function init(db, router) {
 
     router.put('/dictionary', function (req, res) {
         var wordTranslation = req.body;
-        wordTranslation._id = wordTranslation.en;
+        //wordTranslation._id = wordTranslation.en;
         collection.save(wordTranslation,{w:1}, function (err, record) {
             if(err){throw err;}
             res.send(record.ops[0]);
@@ -56,8 +56,8 @@ module.exports = function init(db, router) {
         word._id = word._id ||word.en;
 
         collection.save(word,{w:1}, function (err, record) {
-            if(err){res.send(err);}
-            else{   res.send(word);}
+            if(err){ res.send(err); }
+            else{    res.send(word);}
 
         });
     });

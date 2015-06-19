@@ -1,10 +1,13 @@
 <div class="dictionary">
     <h1>Dictionary</h1>
     <table class="table-dictionary" ng-form="dictionaryForm">
+
         <thead><tr>
             <th>en</th>
             <th>he</th>
+            <th>&nbsp</th>
         </tr></thead>
+
         <tr ng-repeat="word in words track by $index">
 
             <td class="en"><input name="{{ 'en' + $index }}"
@@ -14,6 +17,9 @@
             <td class="he"><input name="{{ 'he' + $index }}"
                                   ng-model="word.he"
                                   ng-change="shakeWordList();save(word,$index)"/></td>
+            <td class="action">
+                <button class="remove-word-btn" ng-click="remove(word,$index)">x</button>
+            </td>
         </tr>
     </table>
     <button ng-click="save()">save</button>

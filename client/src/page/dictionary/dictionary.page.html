@@ -5,16 +5,16 @@
         <thead><tr>
             <th>en</th>
             <th>he</th>
-            <th>&nbsp</th>
+            <th class="action">&nbsp</th>
         </tr></thead>
 
         <tr ng-repeat="word in words track by $index">
 
-            <td class="en"><input name="{{ 'en' + $index }}"
+            <td class="en"><input name="{{:: 'en' + $index }}"
                                   ng-model="word.en"
                                   ng-change="shakeWordList();save(word,$index)"/></td>
 
-            <td class="he"><input name="{{ 'he' + $index }}"
+            <td class="he"><input name="{{:: 'he' + $index }}"
                                   ng-model="word.he"
                                   ng-change="shakeWordList();save(word,$index)"/></td>
             <td class="action">
@@ -22,6 +22,5 @@
             </td>
         </tr>
     </table>
-    <button ng-click="save()">save</button>
 </div>
 

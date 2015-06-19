@@ -5,6 +5,7 @@ var collection = null;
 var moment = require('moment');
 var ObjectID = require('mongodb').ObjectID;
 var _ = require('lodash');
+var status = require('./HttpStatus');
 
 module.exports = function init(db, router) {
 
@@ -43,21 +44,12 @@ module.exports = function init(db, router) {
 
     router.put('/dictionary', function (req, res) {
         var word = req.body;
+        word._id && (word._id = ObjectID(word._id));
         collection.save(word,{w:1}, function (err, record) {
             if(err){ res.send(err); }
-            else{    res.send(word);}
+            else{    res.status(status.CREATED).send(word);}
         });
     });
-
-    //router.post('/dictionary', function (req, res) {
-    //    var word= req.body
-    //        ;
-    //
-    //    collection.save(word,{w:1,safe:1}, function (err, record) {
-    //        if(err){ res.send(err); }
-    //        else{    res.send(word);}
-    //    });
-    //});
 
     router.delete('/dictionary/:id', function (req, res) {
         var id = ObjectID(req.params.id);
@@ -68,7 +60,8 @@ module.exports = function init(db, router) {
                 if(opt.result.n == 1)
                     res.send();
                 else
-                    res.send( new Error('not find word to delete with id'+ req.params.id) )
+
+                    res.status(status.NOT_FOUND).send('not find word to delete with id '+ req.params.id )
 
             }
         })

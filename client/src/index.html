@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html  ng-app="App">
-<head lang="en">
+<head lang="he">
     <meta charset="UTF-8">
     <title>My Log AWS App</title>
     <base href="/" />
@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="styleGuid.css">
+    <link rel="stylesheet" href="page/dashboard/dashboard.css">
     <link rel="stylesheet" href="page/dictionary/dictionary.page.css">
-    <link rel="stylesheet" href="page/main/dashboard.css">
-    <link rel="stylesheet" href="page/main/topbar.css">
+    <link rel="stylesheet" href="page/frame/topbar.css">
     <!-- endinject -->
     <!--favicon-->
     <link rel="import" href="snippets/favicon.html" async>
@@ -26,16 +26,17 @@
 <script src="../bower_components/lodash/lodash.js"></script>
 <script src="../bower_components/angular-facebook/lib/angular-facebook.js"></script>
 <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../bower_components/angular-resource/angular-resource.js"></script>
 <script src="../bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
-<script src="page/main/main.route.js"></script>
 <script src="page/dictionary/dictionary.page.js"></script>
+<script src="page/dashboard/dashboard.page.js"></script>
 <script src="data/Logs.srv.js"></script>
 <script src="data/Dictionary.srv.js"></script>
 <script src="common/User.srv.js"></script>
 <script src="common/Facebook.js"></script>
 <script src="common/Authenticate.js"></script>
 <script src="root.route.js"></script>
-<script src="appConfig.js"></script>
+<script src="app.config.js"></script>
 <!-- endinject -->
 </body>
 </html>

@@ -1,5 +1,5 @@
 .dictionary{
-
+  direction: ltr;
    h1{
      @extend .main-title;
    }
@@ -17,5 +17,16 @@
 
   .action{
     text-align: center;
+    width: 2em;
+  }
+  th.action{
+    background-color: transparent;
+  }
+  tr:last-child{
+    .action{
+      .remove-word-btn{
+        display: none;
+      }
+    }
   }
 }

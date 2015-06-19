@@ -42,24 +42,36 @@ module.exports = function init(db, router) {
     });
 
     router.put('/dictionary', function (req, res) {
-        var wordTranslation = req.body;
-        //wordTranslation._id = wordTranslation.en;
-        collection.save(wordTranslation,{w:1}, function (err, record) {
-            if(err){throw err;}
-            res.send(record.ops[0]);
-        });
-    });
-
-    router.post('/dictionary', function (req, res) {
-        var word= req.body
-            ;
-        word._id = word._id ||word.en;
-
+        var word = req.body;
         collection.save(word,{w:1}, function (err, record) {
             if(err){ res.send(err); }
             else{    res.send(word);}
-
         });
+    });
+
+    //router.post('/dictionary', function (req, res) {
+    //    var word= req.body
+    //        ;
+    //
+    //    collection.save(word,{w:1,safe:1}, function (err, record) {
+    //        if(err){ res.send(err); }
+    //        else{    res.send(word);}
+    //    });
+    //});
+
+    router.delete('/dictionary/:id', function (req, res) {
+        var id = ObjectID(req.params.id);
+        //var id = req.params.id;
+        collection.remove({_id:id},1, function (err, opt) {
+            if(err){ res.send(err); }
+            else{
+                if(opt.result.n == 1)
+                    res.send();
+                else
+                    res.send( new Error('not find word to delete with id'+ req.params.id) )
+
+            }
+        })
     });
 
     //todo:build a ui for add word. and remmber all tag must save in en

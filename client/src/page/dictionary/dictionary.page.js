@@ -18,9 +18,9 @@ angular.module('dictionary.page.js')
 
         $scope.shakeWordList = shakeWordList;
         $scope.save = _.debounce(save,700,{leading: false,trailing:true});
+        $scope.remove = remove;
 
         function save(word,index){
-            console.log('call to save');
             Dictionary.save(word).then(
                 function (resWord) {
                     angular.copy(resWord,word);
@@ -31,6 +31,12 @@ angular.module('dictionary.page.js')
                     console.log(resson);
                 })
 
+        }
+
+        function remove(word){
+            Dictionary.remove(word).then(function (res) {
+                _.remove($scope.words,word);
+            })
         }
 
         function shakeWordList(){

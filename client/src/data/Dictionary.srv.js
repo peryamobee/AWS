@@ -7,7 +7,8 @@ angular.module('dictionary',[])
     return {
         get:get,
         add:add,
-        save:save
+        save:save,
+        remove:remove
     };
 
     function get(){
@@ -26,12 +27,21 @@ angular.module('dictionary',[])
     function save(word){
         _.defaults(word,{en:'',he:''});
         if(validation(word)){
-            return $http.post('///dictionary',word).then(function (res) {
+            return $http.put('///dictionary',word).then(function (res) {
                 return res.data;
 
             })
         }else{
             return  $q.reject('word not valid');
+        }
+
+    }
+
+    function remove(word){
+        if(word._id){
+            return $http.delete('///dictionary/'+word._id)
+        }else{
+            $q.resolve();
         }
 
     }

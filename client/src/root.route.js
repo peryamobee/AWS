@@ -20,12 +20,13 @@ angular.module('appRootState',[
             ]
         })
 })
-.controller('mainController',function($scope,$rootScope,Log,$parse,Facebook ){
+.controller('mainController',function($scope,$rootScope,Log,$parse,Facebook,User ){
+    $scope.user = User;
     $scope.login = function() {
         // From now on you can use the Facebook service just as Facebook api says
         Facebook.login(function(response) {
-            console.log(response);
-            $state.go('root.main');
+        console.log(response);
+        $state.go('root.main');
         });
     };
 });

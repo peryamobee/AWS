@@ -17,13 +17,15 @@ angular.module('dictionary.page.js')
         });
 
         $scope.shakeWordList = shakeWordList;
-        $scope.save = _.debounce(save,500,{leading: false,trailing:true});
+        $scope.save = _.debounce(save,700,{leading: false,trailing:true});
 
-        function save(word,i){
+        function save(word,index){
             console.log('call to save');
             Dictionary.save(word).then(
                 function (resWord) {
                     angular.copy(resWord,word);
+                    $scope.dictionaryForm['en' + index].$setPristine();
+                    $scope.dictionaryForm['he' + index].$setPristine();
                 },
                 function (resson) {
                     console.log(resson);

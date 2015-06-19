@@ -28,6 +28,7 @@ angular.module('dictionary',[])
         if(validation(word)){
             return $http.post('///dictionary',word).then(function (res) {
                 return res.data;
+
             })
         }else{
             return  $q.reject('word not valid');

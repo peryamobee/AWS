@@ -35,12 +35,6 @@
   overflow: hidden;
   text-align: right;
 
-  .side-note{
-    width: 7em;
-    min-height: 1em;
-    display: inline-block;
-    border-left: 1px solid  rgb(129, 128, 128);
-  }
 
   .record-create-time {
     margin: 0 0.3em;
@@ -50,6 +44,14 @@
   .record-text{
     display: inline-block;
   }
+
+  .side-note{
+    //width: 7em;
+    min-height: 1em;
+    display: block;
+    //border-left: 1px solid  rgb(129, 128, 128);
+  }
+
 }
 
 .log-input {

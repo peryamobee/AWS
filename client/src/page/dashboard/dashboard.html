@@ -8,14 +8,15 @@
             <div  class="day-title" ng-bind="titleDay"></div>
             <!--every line start here-->
             <div class="record" ng-repeat="record in day" >
+
+                <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
+                <div class="record-text" ng-bind="record.text"></div>
                 <div class="side-note" >
                     <!--<span ng-repeat="tag in record.tags track by $index" ng-bind="tag"></span>-->
 
                     <tags-input ng-model="tags" ></tags-input>
 
                 </div>
-                <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
-                <div class="record-text" ng-bind="record.text"></div>
             </div>
         </div>
 

@@ -21,6 +21,7 @@
     "angular-facebook": "~0.2.3",
     "angular-ui-router.stateHelper": "~1.3.0",
     "angular-ui-router": "~0.2.14",
-    "angular-resource": "~1.4.1"
+    "angular-resource": "~1.4.1",
+    "ng-tags-input": "~2.3.0"
   }
 }

@@ -11,6 +11,7 @@ angular.module('App',[
     ,'Authenticate'
     ,'appRootState'
     ,'dictionary'
+    ,'ngTagsInput'
 ])
     .config(function(FacebookProvider) {
         FacebookProvider.init('362389493857685');

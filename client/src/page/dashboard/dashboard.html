@@ -2,22 +2,23 @@
     <!--todo: find way to  split main stream from side's stream-->
 
     <div class="stream main-stream" ng-repeat="(titleYear,days) in Log.groupedList">
-        <div class="year-title">
-            {{titleYear}}
-        </div>
+        <div class="year-title" ng-bind="titleYear"></div>
+
         <div class="day" ng-repeat="(titleDay,day) in days">
-            <div  class="day-title" >
-                {{titleDay}}
-            </div>
+            <div  class="day-title" ng-bind="titleDay"></div>
             <!--every line start here-->
             <div class="record" ng-repeat="record in day" >
                 <div class="side-note" >
-                    <span ng-repeat="tag in record.tags track by $index" ng-bind="tag"></span>
+                    <!--<span ng-repeat="tag in record.tags track by $index" ng-bind="tag"></span>-->
+
+                    <tags-input ng-model="tags" ></tags-input>
+
                 </div>
                 <div class="record-create-time" ng-bind="record.create | date:'HH:MM' "></div>
                 <div class="record-text" ng-bind="record.text"></div>
             </div>
         </div>
+
         <form ng-submit="addLog(model.log)">
             <div class="record" >
                 <div class="log-input">

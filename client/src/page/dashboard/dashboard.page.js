@@ -30,4 +30,16 @@ angular.module('dashboard.page')
         Log.updataList(daysBack);
 
 
+        $scope.tags = [{
+            id: 0,
+            text: 'hello'
+        }, {
+            id: 1,
+            text: 'wprld'
+        },{
+            id:2,
+            text:'world'
+        }]
+
+
     });

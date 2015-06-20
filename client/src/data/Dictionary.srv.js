@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by pery on 14/06/2015.
  */
 angular.module('dictionary',[])

@@ -5,7 +5,7 @@ var collection = null;
 var moment = require('moment');
 var ObjectID = require('mongodb').ObjectID;
 
-module.exports = function init ( db, router ){
+module.exports = function init ( db, router, dicationy ){
 
     /** init **/
     collection = db.collection('logs',function(err){
@@ -15,8 +15,8 @@ module.exports = function init ( db, router ){
 
     router.get('/log', function (req, res) {
         getLogs({
-            fromDay:moment().subtract(req.query.lastDays || 1,'day').startOf('day').toDate(),
-            userId:req.headers.authentication
+            fromDay: moment().subtract(req.query.lastDays || 1,'day').startOf('day').toDate(),
+            userId:  req.headers.authentication
         }, function (err, result) {
             if(err){throw err;}
             res.send(result);
@@ -33,6 +33,19 @@ module.exports = function init ( db, router ){
             res.send(result);
         })
     });
+
+    router.get('/log/tags', function (req, res) {
+        getUsesTags({
+            userId:req.headers.authentication,
+            lang:req.query.lang
+        }, function (result) {
+            res.send(result)
+        })
+
+
+
+    });
+
     router.post('/log', saveLog);
 
     /** API **/
@@ -80,6 +93,11 @@ module.exports = function init ( db, router ){
         collection.aggregate(pipe, cb)
     }
 
+    function getUsesTags(config, cb){
+        collection.distinct('hashTags',{userId:config.userId}, function (result) {
+            dicationy(result,cb)
+        })
+    }
 
 };
 

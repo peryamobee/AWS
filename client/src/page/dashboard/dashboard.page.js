@@ -18,6 +18,7 @@ angular.module('dashboard.page')
         };
 
 
+
         $scope.streams = [{
             name:'ארועים',
             records:[{
@@ -35,7 +36,7 @@ angular.module('dashboard.page')
             text: 'hello'
         }, {
             id: 1,
-            text: 'wprld'
+            text: 'whould'
         },{
             id:2,
             text:'world'

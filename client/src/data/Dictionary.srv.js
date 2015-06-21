@@ -23,15 +23,16 @@ var list   = [];
 
 
 
-    function get(){
+    function get(config){
+        config = config || {};
         return $http.get('///dictionary',{
             params:{
-                size:100,
+                size:config.size || 100,
                 words:[],
-                lang:'en'
+                lang:config.lang || 'en'
             }
         }).then(function (res) {
-            angular.copy(res.data,list);
+            angular.copy( res.data, list );
             return list;
         })
     }

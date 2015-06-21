@@ -30,8 +30,9 @@ MongoClient.connect('mongodb://localhost:27017/test',function (err, db) {
         return;
     }
     /** LOGS SERVICE **/
-   require('./lib/logs.mdl')(db ,app);
-   require('./lib/dictionary.mdl')(db ,app);
+    var dicationy = require('./lib/dictionary.mdl')(db ,app);
+    require('./lib/logs.mdl')(db ,app, dicationy);
+
     //var userService = new (require('./src/user.mdl'))(db);
     //app.get('/hash',userService.getHashTag);
     //app.post('/hash',userService.addHashTag);

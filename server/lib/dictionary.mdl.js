@@ -10,7 +10,7 @@ var status = require('./HttpStatus');
 module.exports = function init(db, router) {
 
     /** init **/
-    var collection = db.collection('tagDictionary',function(err){
+    collection = db.collection('tagDictionary',function(err){
         if(err) throw err;
         console.log("dictionary collection arrive");
     });
@@ -21,8 +21,14 @@ module.exports = function init(db, router) {
      *  en:'word',
      *  he:'word',
      *  fr:'word',
+     *  state_driven:[]
      *  }
      **/
+
+    module.exports.getTagsById = function(ids, cb){
+      return collection.find({_id:{$in:ids}},cb)
+    };
+
 
     router.get('/dictionary', function (req, res) {
         var words = req.query.words,

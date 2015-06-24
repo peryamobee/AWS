@@ -19,7 +19,7 @@ module.exports = function init ( db, router, dicationy ){
             userId:  req.headers.authentication
         }, function (err, result) {
             if(err){throw err;}
-            res.send(result);
+             res.send(result);
         })
     });
 
